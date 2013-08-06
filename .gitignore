@@ -35,3 +35,9 @@ xmlrpc.php
 /profiles
 /scripts
 /themes
+
+# Touch poi admin theme
+sites/all/themes/touch_admin/config/assets-config.inc
+sites/all/themes/touch_admin/.sass-cache
+sites/all/themes/touch_admin/stylesheets/*.css
+
