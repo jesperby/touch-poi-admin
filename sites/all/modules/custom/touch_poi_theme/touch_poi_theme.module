@@ -1,0 +1,63 @@
+<?php
+
+/**
+ * @file
+ * Support module for Malmö Stad forum
+ */
+
+require_once( drupal_get_path('theme', 'touch_poi') . "/block/block-content-functions.inc" );
+
+/**
+ * Implementation of hook_block_info().
+ */
+function touch_poi_theme_block_info() {    
+  $blocks['forum_footer_nav'] = array(
+    'info' => t('Forum footer navigation'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implementation of hook_block_view().
+ */
+function touch_poi_theme_block_view($delta = '') {
+	$block = '';
+  switch ($delta) {
+    case 'forum_footer_nav':
+    	$block['subject'] = '';
+      $block['content'] = touch_poi_footer_nav();
+      break;
+  }
+
+  return $block;
+}
+
+
+/**
+ * Implementation of hook_menu_alter().
+ */
+function touch_poi_theme_menu_alter(&$items) {
+  
+  // Page add/edit container only available to super admin 
+  $items['admin/structure/forum/add/container']['access arguments'] = array('access administration pages');
+  $items['admin/structure/forum/edit/container/%taxonomy_term'] = array('access administration pages'); 
+
+  // Place add forum as tab menu
+  $items['admin/structure/forum/add/forum']['type'] = MENU_LOCAL_TASK;
+
+  // Remove settings from tab menu
+  $items['admin/structure/forum/settings']['type'] = MENU_NORMAL_ITEM;
+}
+
+
+/**
+ * Implementation of hook_theme().
+ */
+function touch_poi_theme_theme() {
+    return array(
+        'asset_button_link' => array(
+            'render element' => 'element',
+        ),
+    );
+}
