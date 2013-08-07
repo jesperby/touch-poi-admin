@@ -10,6 +10,7 @@ The following modules are used:
 * [Entity reference](https://drupal.org/project/entityreference)
 * [ctools](https://drupal.org/project/ctools)
 * [entity](https://drupal.org/project/entity)
+* [views](https://drupal.org/project/views)
 
 Installation
 ============

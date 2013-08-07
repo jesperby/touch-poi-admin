@@ -46,3 +46,4 @@ sites/all/modules/admin_menu
 sites/all/modules/ctools
 sites/all/modules/entity
 sites/all/modules/entityreference
+sites/all/modules/views
