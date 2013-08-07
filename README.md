@@ -10,3 +10,10 @@ The following modules are used:
 * [Entity reference](https://drupal.org/project/entityreference)
 * [ctools](https://drupal.org/project/ctools)
 * [entity](https://drupal.org/project/entity)
+
+Installation
+============
+
+* First perform basic drupal 7 installation
+* Download and enable module depencies
+* Enable all features
