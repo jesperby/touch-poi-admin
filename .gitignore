@@ -41,3 +41,8 @@ sites/all/themes/touch_poi/config/assets-config.inc
 sites/all/themes/touch_poi/.sass-cache
 sites/all/themes/touch_poi/stylesheets/*.css
 
+# Module dependencies
+sites/all/modules/admin_menu
+sites/all/modules/ctools
+sites/all/modules/entity
+sites/all/modules/entityreference
