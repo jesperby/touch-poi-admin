@@ -36,6 +36,9 @@ xmlrpc.php
 /scripts
 /themes
 
+# Ignore contributed modules
+sites/all/modules/contrib
+
 # Touch poi admin theme
 sites/all/themes/touch_poi/config/assets-config.inc
 sites/all/themes/touch_poi/.sass-cache
