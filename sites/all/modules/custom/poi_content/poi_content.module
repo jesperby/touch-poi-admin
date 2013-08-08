@@ -10,7 +10,7 @@ require_once( drupal_get_path('theme', 'touch_poi') . "/block/block-content-func
 /**
  * Implementation of hook_block_info().
  */
-function touch_poi_theme_block_info() {    
+function poi_content_block_info() {    
   $blocks['forum_footer_nav'] = array(
     'info' => t('Forum footer navigation'),
   );
@@ -36,7 +36,7 @@ function touch_poi_theme_block_info() {
 /**
  * Implementation of hook_block_view().
  */
-function touch_poi_theme_block_view($delta = '') {
+function poi_content_block_view($delta = '') {
 	$block = '';
   switch ($delta) {
     case 'forum_footer_nav':
@@ -70,7 +70,7 @@ function touch_poi_theme_block_view($delta = '') {
 /**
  * Implementation of hook_menu_alter().
  */
-function touch_poi_theme_menu_alter(&$items) {
+function poi_content_menu_alter(&$items) {
   
   // Page add/edit container only available to super admin 
   $items['admin/structure/forum/add/container']['access arguments'] = array('access administration pages');
@@ -87,7 +87,7 @@ function touch_poi_theme_menu_alter(&$items) {
 /**
  * Implementation of hook_theme().
  */
-function touch_poi_theme_theme() {
+function poi_content_theme() {
     return array(
         'asset_button_link' => array(
             'render element' => 'element',

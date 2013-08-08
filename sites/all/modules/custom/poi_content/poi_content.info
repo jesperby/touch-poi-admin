@@ -1,0 +1,8 @@
+
+name = Poi content
+description = Module to handle pois, their content and categories
+package = Touch Poi Admin
+core = 7.x
+
+
+
