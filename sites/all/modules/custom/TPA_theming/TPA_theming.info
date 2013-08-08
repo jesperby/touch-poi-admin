@@ -1,0 +1,8 @@
+
+name = TPA Theming
+description = Helper module for anything regarding theming
+package = Touch Poi Admin
+core = 7.x
+
+
+

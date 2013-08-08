@@ -9,7 +9,7 @@
 /**
  * Implementation of hook_block_info().
  */
-function poi_content_block_info() {    
+function TPA_poi_content_block_info() {    
   $blocks['forum_footer_nav'] = array(
     'info' => t('Forum footer navigation'),
   );
@@ -35,7 +35,7 @@ function poi_content_block_info() {
 /**
  * Implementation of hook_block_view().
  */
-function poi_content_block_view($delta = '') {
+function TPA_poi_content_block_view($delta = '') {
 	$block = '';
   switch ($delta) {
     case 'forum_footer_nav':
@@ -63,16 +63,4 @@ function poi_content_block_view($delta = '') {
   }
 
   return $block;
-}
-
-
-/**
- * Implementation of hook_theme().
- */
-function poi_content_theme() {
-    return array(
-        'asset_button_link' => array(
-            'render element' => 'element',
-        ),
-    );
 }

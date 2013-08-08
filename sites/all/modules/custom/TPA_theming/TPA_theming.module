@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Helper module for anything theming
+ */
+
+
+/**
+ * Implementation of hook_theme().
+ */
+function TPA_theming_theme() {
+    return array(
+        'asset_button_link' => array(
+            'render element' => 'element',
+        ),
+    );
+}
