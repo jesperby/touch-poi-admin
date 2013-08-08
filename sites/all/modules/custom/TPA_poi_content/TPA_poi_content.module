@@ -10,22 +10,22 @@
  * Implementation of hook_block_info().
  */
 function TPA_poi_content_block_info() {    
-  $blocks['forum_footer_nav'] = array(
+  $blocks['TPA_forum_footer_nav'] = array(
     'info' => t('Forum footer navigation'),
   );
 
   // Add poi
-  $blocks['add_poi_link'] = array(
+  $blocks['TPA_add_poi_link'] = array(
     'info' => t('Link to add new poi.'),
   );
 
   // Add subcategory
-  $blocks['add_subcategory_link'] = array(
+  $blocks['TPA_add_subcategory_link'] = array(
     'info' => t('Link to add new subcategory.'),
   );
 
   // Add category
-  $blocks['add_category_link'] = array(
+  $blocks['TPA_add_category_link'] = array(
     'info' => t('Link to add new category.'),
   );
 
@@ -38,23 +38,23 @@ function TPA_poi_content_block_info() {
 function TPA_poi_content_block_view($delta = '') {
 	$block = '';
   switch ($delta) {
-    case 'forum_footer_nav':
+    case 'TPA_forum_footer_nav':
     	$block['subject'] = '';
       $block['content'] = touch_poi_footer_nav();
       break;
-    case 'add_poi_link':
+    case 'TPA_add_poi_link':
       $block['subject'] = '';
       $block['pages'] = 'pois';
       $link_text = t('Add poi');
       $block['content'] = l( $link_text, 'node/add/poi');
       break;
-    case 'add_subcategory_link':
+    case 'TPA_add_subcategory_link':
       $block['subject'] = '';
       $block['pages'] = 'subcategories';
       $link_text = t('Add sub-category');
       $block['content'] = l( $link_text, 'node/add/subcategory');
       break;
-    case 'add_category_link':
+    case 'TPA_add_category_link':
       $block['subject'] = '';
       $block['pages'] = 'categories';
       $link_text = t('Add category');
@@ -63,4 +63,52 @@ function TPA_poi_content_block_view($delta = '') {
   }
 
   return $block;
+}
+
+
+/**
+ * Implementation of hook_form_alter() for poi_node_form.
+ */
+function TPA_poi_content_form_poi_node_form_alter(&$form, &$form_state) {
+  $form['actions']['submit']['#submit'][] = 'TPA_add_poi_submit';
+}
+
+/*
+ * Add poi submit function
+ */
+function TPA_add_poi_submit($form, &$form_state) {
+  unset($form_state['rebuild']); 
+  $form_state['redirect'] = 'pois';
+}
+
+/**
+ * Implementation of hook_form_alter() for subcategory_node_form.
+ */
+function TPA_poi_content_form_subcategory_node_form_alter(&$form, &$form_state) {
+  $form['actions']['submit']['#submit'][] = 'TPA_add_subcategory_submit';
+}
+
+
+/*
+ * Add subcategory submit function
+ */
+function TPA_add_subcategory_submit($form, &$form_state) {
+  unset($form_state['rebuild']); 
+  $form_state['redirect'] = 'subcategories';
+}
+
+/**
+ * Implementation of hook_form_alter() for category_node_form.
+ */
+function TPA_poi_content_form_category_node_form_alter(&$form, &$form_state) {
+  $form['actions']['submit']['#submit'][] = 'TPA_add_category_submit';
+}
+
+
+/*
+ * Add category submit function
+ */
+function TPA_add_category_submit($form, &$form_state) {
+  unset($form_state['rebuild']); 
+  $form_state['redirect'] = 'categories';
 }
