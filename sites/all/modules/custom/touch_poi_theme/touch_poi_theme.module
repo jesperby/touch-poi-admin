@@ -15,6 +15,21 @@ function touch_poi_theme_block_info() {
     'info' => t('Forum footer navigation'),
   );
 
+  // Add poi
+  $blocks['add_poi_link'] = array(
+    'info' => t('Link to add new poi.'),
+  );
+
+  // Add subcategory
+  $blocks['add_subcategory_link'] = array(
+    'info' => t('Link to add new subcategory.'),
+  );
+
+  // Add category
+  $blocks['add_category_link'] = array(
+    'info' => t('Link to add new category.'),
+  );
+
   return $blocks;
 }
 
@@ -27,6 +42,24 @@ function touch_poi_theme_block_view($delta = '') {
     case 'forum_footer_nav':
     	$block['subject'] = '';
       $block['content'] = touch_poi_footer_nav();
+      break;
+    case 'add_poi_link':
+      $block['subject'] = '';
+      $block['pages'] = 'pois';
+      $link_text = t('Add poi');
+      $block['content'] = l( $link_text, 'node/add/poi');
+      break;
+    case 'add_subcategory_link':
+      $block['subject'] = '';
+      $block['pages'] = 'subcategories';
+      $link_text = t('Add sub-category');
+      $block['content'] = l( $link_text, 'node/add/subcategory');
+      break;
+    case 'add_category_link':
+      $block['subject'] = '';
+      $block['pages'] = 'categories';
+      $link_text = t('Add category');
+      $block['content'] = l( $link_text, 'node/add/category');
       break;
   }
 
