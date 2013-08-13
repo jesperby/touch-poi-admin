@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Module for stand-alone scripts
+ * Run scripts for example using drush - drush eval 'YOUR SCRIPT()'
+ */
+
+/*
+ * Implementation of hook_init()
+ */
+function TPA_scripts_init() {
+ // Include the import script so that we can drush run scripts
+  module_load_include('inc', 'TPA_scripts', 'includes/TPA_import');
+}
+

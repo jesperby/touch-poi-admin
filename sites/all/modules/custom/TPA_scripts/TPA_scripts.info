@@ -1,0 +1,8 @@
+
+name = TPA Scripts
+description = Module for all scripts
+package = Touch Poi Admin
+core = 7.x
+
+
+
