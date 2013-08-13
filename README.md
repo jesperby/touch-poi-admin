@@ -18,3 +18,8 @@ Installation
 * First perform basic drupal 7 installation
 * Download and enable module depencies
 * Enable all features
+
+License
+=======
+
+Released under AGPL version 3.
