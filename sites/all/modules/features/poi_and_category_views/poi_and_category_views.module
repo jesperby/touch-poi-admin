@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Poi and category views feature.
+ */
+
+include_once 'poi_and_category_views.features.inc';
