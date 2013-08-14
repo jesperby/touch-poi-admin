@@ -2,8 +2,23 @@
 
 /**
  * @file
- * Support module for Malmö Stad forum
+ * Module to handle pois, their content and categories
  */
+
+require_once './' . drupal_get_path('module', 'TPA_poi_content') . '/feeds/subcategory.inc';
+
+/**
+ * Implementation of hook_block_info().
+ */
+function TPA_poi_content_menu() {
+  $items['feeds/subcategories.xml'] = array(
+      'page callback' => 'TPA_poi_content_subcategory_feed',
+      'access arguments' => array('access content'),
+    );
+    
+    return $items;
+}    
+
 
 
 /**
