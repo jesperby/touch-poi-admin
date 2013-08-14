@@ -1,0 +1,10 @@
+name = Poi block settings
+description = All blocks and block settings of poi and their categories/subcategories
+core = 7.x
+package = Malmö Stad
+dependencies[] = TPA_poi_content
+dependencies[] = fe_block
+features[fe_block_settings][] = TPA_poi_content-TPA_add_category_link
+features[fe_block_settings][] = TPA_poi_content-TPA_add_poi_link
+features[fe_block_settings][] = TPA_poi_content-TPA_add_subcategory_link
+features[features_api][] = api:2
