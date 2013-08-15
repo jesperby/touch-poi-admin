@@ -43,8 +43,8 @@
 	  	$active = $node->field_closed['und'][0]['value'] == 1 ? 'false' : 'true';
 	  	$longitude = $node->field_longitude['und'][0]['value'];
 	  	$langitude = $node->field_latitude['und'][0]['value'];
-	  	$description = $node->body['und'][0]['value'];
-	  	$the_name = $node->title;
+	  	$description = htmlspecialchars( $node->body['und'][0]['value'], ENT_QUOTES );
+	  	$name = htmlspecialchars( $node->title, ENT_QUOTES );
 	  	$id = $node->nid;
 	  	//$point_xml = $name;
 	  	
@@ -67,8 +67,8 @@
 			$point_xml .= '
 				<point 	type="' . $type . '" longitude="' . $longitude . '" latitude="' . $langitude . '" active="' . $active . '" 
 								id="' . $id . '" 
-								name="" address="' . $address . '" openTime="' . $openTime . '" closeTime="' . $closeTime . '">
-					<description></description>
+								name="' . $name . '" address="' . $address . '" openTime="' . $openTime . '" closeTime="' . $closeTime . '">
+					<description>' . $description . '</description>
 					<image imageUrl="' . $imageUrl . '"/>
 				</point>
 			';
