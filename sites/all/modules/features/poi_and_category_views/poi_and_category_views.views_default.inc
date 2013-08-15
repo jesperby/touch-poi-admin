@@ -145,6 +145,17 @@ function poi_and_category_views_views_default_views() {
   /* Display: Subcategories */
   $handler = $view->new_display('page', 'Subcategories', 'page_1');
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Map icon */
+  $handler->display->display_options['fields']['field_map_icon']['id'] = 'field_map_icon';
+  $handler->display->display_options['fields']['field_map_icon']['table'] = 'field_data_field_map_icon';
+  $handler->display->display_options['fields']['field_map_icon']['field'] = 'field_map_icon';
+  $handler->display->display_options['fields']['field_map_icon']['label'] = '';
+  $handler->display->display_options['fields']['field_map_icon']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_map_icon']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_map_icon']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
