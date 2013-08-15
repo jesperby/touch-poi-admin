@@ -43,11 +43,12 @@
 			$mapImage = file_create_url($node->field_map_icon['und'][0]['uri']); 								// Map image
 			$errorReportEnabled = $node->field_activate_error_reporting['und'][0]['value'] == 1 ? 'true' : 'false';
 			$picturesEnabled = $node->field_activate_images['und'][0]['value'] == 1 ? 'true' : 'false';
+			$name = htmlspecialchars( $node->title, ENT_QUOTES );
 			
 			// The xml
 			$point_type_xml .= '
 				  <pointType errorReportEnabled="' . $errorReportEnabled . '" picturesEnabled="' . $picturesEnabled . '" 
-				  					 name="' . $node->title . '" id="' . $node->nid . '">
+				  					 name="' . $name . '" id="' . $node->nid . '">
 				    <closedImage imageUrl="' . $closedImage . '"/>
 				    <closedMapImage imageUrl="' . $closedMapImage . '"/>
 				    <image imageUrl="' . $image . '"/>
