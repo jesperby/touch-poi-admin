@@ -37,7 +37,7 @@
 	  foreach( $nodes as $node ) {
 	  	//var_dump( $node );
 	  	
-	  	$address = $node->field_adress['und'][0]['value'];
+	  	$address = htmlspecialchars( $node->field_adress['und'][0]['value'], ENT_QUOTES );
 	  	$imageUrl = file_create_url($node->field_poi_image['und'][0]['uri']);
 	  	$type = $node->field_subcategory['und'][0]['target_id'];
 	  	$active = $node->field_closed['und'][0]['value'] == 1 ? 'false' : 'true';
