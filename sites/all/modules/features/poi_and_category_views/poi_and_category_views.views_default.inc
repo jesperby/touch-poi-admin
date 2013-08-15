@@ -123,13 +123,14 @@ function poi_and_category_views_views_default_views() {
   $handler->display->display_options['filters']['field_subcategory_target_id']['field'] = 'field_subcategory_target_id';
   $handler->display->display_options['filters']['field_subcategory_target_id']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_subcategory_target_id']['expose']['operator_id'] = 'field_subcategory_target_id_op';
-  $handler->display->display_options['filters']['field_subcategory_target_id']['expose']['label'] = 'Subcategory (field_subcategory)';
+  $handler->display->display_options['filters']['field_subcategory_target_id']['expose']['label'] = 'Choose subcategory';
   $handler->display->display_options['filters']['field_subcategory_target_id']['expose']['operator'] = 'field_subcategory_target_id_op';
   $handler->display->display_options['filters']['field_subcategory_target_id']['expose']['identifier'] = 'field_subcategory_target_id';
+  $handler->display->display_options['filters']['field_subcategory_target_id']['expose']['remember'] = TRUE;
   $handler->display->display_options['filters']['field_subcategory_target_id']['expose']['remember_roles'] = array(
     2 => '2',
+    3 => '3',
     1 => 0,
-    3 => 0,
   );
   $handler->display->display_options['path'] = 'pois';
 
@@ -179,13 +180,14 @@ function poi_and_category_views_views_default_views() {
   $handler->display->display_options['filters']['field_category_target_id']['field'] = 'field_category_target_id';
   $handler->display->display_options['filters']['field_category_target_id']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_category_target_id']['expose']['operator_id'] = 'field_category_target_id_op';
-  $handler->display->display_options['filters']['field_category_target_id']['expose']['label'] = 'Category (field_category)';
+  $handler->display->display_options['filters']['field_category_target_id']['expose']['label'] = 'Choose category';
   $handler->display->display_options['filters']['field_category_target_id']['expose']['operator'] = 'field_category_target_id_op';
   $handler->display->display_options['filters']['field_category_target_id']['expose']['identifier'] = 'field_category_target_id';
+  $handler->display->display_options['filters']['field_category_target_id']['expose']['remember'] = TRUE;
   $handler->display->display_options['filters']['field_category_target_id']['expose']['remember_roles'] = array(
     2 => '2',
+    3 => '3',
     1 => 0,
-    3 => 0,
   );
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
