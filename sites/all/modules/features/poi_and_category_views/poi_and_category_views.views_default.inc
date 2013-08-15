@@ -87,6 +87,20 @@ function poi_and_category_views_views_default_views() {
   $handler = $view->new_display('page', 'Pois', 'page');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Pois';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node_1']['id'] = 'edit_node_1';
+  $handler->display->display_options['fields']['edit_node_1']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node_1']['field'] = 'edit_node';
+  /* Field: Content: Delete link */
+  $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -130,6 +144,24 @@ function poi_and_category_views_views_default_views() {
 
   /* Display: Subcategories */
   $handler = $view->new_display('page', 'Subcategories', 'page_1');
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Delete link */
+  $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -172,6 +204,24 @@ function poi_and_category_views_views_default_views() {
   $handler = $view->new_display('page', 'Categories', 'page_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Categories';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Delete link */
+  $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
