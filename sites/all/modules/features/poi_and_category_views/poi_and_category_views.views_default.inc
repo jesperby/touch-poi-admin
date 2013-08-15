@@ -121,15 +121,6 @@ function poi_and_category_views_views_default_views() {
   $handler->display->display_options['filters']['field_subcategory_target_id']['id'] = 'field_subcategory_target_id';
   $handler->display->display_options['filters']['field_subcategory_target_id']['table'] = 'field_data_field_subcategory';
   $handler->display->display_options['filters']['field_subcategory_target_id']['field'] = 'field_subcategory_target_id';
-  $handler->display->display_options['filters']['field_subcategory_target_id']['value'] = array(
-    'all' => 'all',
-    1 => '1',
-    2 => '2',
-    3 => '3',
-    8 => '8',
-    9 => '9',
-    10 => '10',
-  );
   $handler->display->display_options['filters']['field_subcategory_target_id']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_subcategory_target_id']['expose']['operator_id'] = 'field_subcategory_target_id_op';
   $handler->display->display_options['filters']['field_subcategory_target_id']['expose']['label'] = 'Subcategory (field_subcategory)';
@@ -186,12 +177,6 @@ function poi_and_category_views_views_default_views() {
   $handler->display->display_options['filters']['field_category_target_id']['id'] = 'field_category_target_id';
   $handler->display->display_options['filters']['field_category_target_id']['table'] = 'field_data_field_category';
   $handler->display->display_options['filters']['field_category_target_id']['field'] = 'field_category_target_id';
-  $handler->display->display_options['filters']['field_category_target_id']['value'] = array(
-    'all' => 'all',
-    5 => '5',
-    6 => '6',
-    7 => '7',
-  );
   $handler->display->display_options['filters']['field_category_target_id']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_category_target_id']['expose']['operator_id'] = 'field_category_target_id_op';
   $handler->display->display_options['filters']['field_category_target_id']['expose']['label'] = 'Category (field_category)';
@@ -208,6 +193,15 @@ function poi_and_category_views_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'subcategory' => 'subcategory',
+  );
+  $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
+  $handler->display->display_options['filters']['type']['expose']['label'] = 'Type';
+  $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
+  $handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
+  $handler->display->display_options['filters']['type']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
   );
   $handler->display->display_options['path'] = 'subcategories';
 
