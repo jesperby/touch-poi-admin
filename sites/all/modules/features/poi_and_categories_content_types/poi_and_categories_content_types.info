@@ -26,7 +26,6 @@ features[field_base][] = field_map_closed_icon
 features[field_base][] = field_map_icon
 features[field_base][] = field_poi_image
 features[field_base][] = field_subcategory
-features[field_instance][] = node-category-body
 features[field_instance][] = node-poi-body
 features[field_instance][] = node-poi-field_adress
 features[field_instance][] = node-poi-field_closed
