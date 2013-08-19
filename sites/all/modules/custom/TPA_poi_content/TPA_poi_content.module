@@ -91,6 +91,10 @@ function TPA_poi_content_block_view($delta = '') {
  * Implementation of hook_form_alter() for poi_node_form.
  */
 function TPA_poi_content_form_poi_node_form_alter(&$form, &$form_state) {
+  // Preview
+  unset($form['actions']['preview']);
+
+  // Submit
   $form['actions']['submit']['#submit'][] = 'TPA_add_poi_submit';
 }
 
@@ -106,6 +110,10 @@ function TPA_add_poi_submit($form, &$form_state) {
  * Implementation of hook_form_alter() for subcategory_node_form.
  */
 function TPA_poi_content_form_subcategory_node_form_alter(&$form, &$form_state) {
+  // Preview
+  unset($form['actions']['preview']);
+
+  // Submit
   $form['actions']['submit']['#submit'][] = 'TPA_add_subcategory_submit';
 }
 
@@ -122,6 +130,10 @@ function TPA_add_subcategory_submit($form, &$form_state) {
  * Implementation of hook_form_alter() for category_node_form.
  */
 function TPA_poi_content_form_category_node_form_alter(&$form, &$form_state) {
+  // Preview
+  unset($form['actions']['preview']);
+
+  // Submit
   $form['actions']['submit']['#submit'][] = 'TPA_add_category_submit';
 }
 
