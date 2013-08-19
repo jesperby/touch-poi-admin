@@ -7,6 +7,7 @@
 
 require_once './' . drupal_get_path('module', 'TPA_poi_content') . '/feeds/subcategory.inc';
 require_once './' . drupal_get_path('module', 'TPA_poi_content') . '/feeds/poi.inc';
+require_once './' . drupal_get_path('module', 'TPA_poi_content') . '/includes/forms.inc';
 
 /**
  * Implementation of hook_block_info().
@@ -98,14 +99,6 @@ function TPA_poi_content_form_poi_node_form_alter(&$form, &$form_state) {
   $form['actions']['submit']['#submit'][] = 'TPA_add_poi_submit';
 }
 
-/*
- * Add poi submit function
- */
-function TPA_add_poi_submit($form, &$form_state) {
-  unset($form_state['rebuild']); 
-  $form_state['redirect'] = 'pois';
-}
-
 /**
  * Implementation of hook_form_alter() for subcategory_node_form.
  */
@@ -118,13 +111,7 @@ function TPA_poi_content_form_subcategory_node_form_alter(&$form, &$form_state) 
 }
 
 
-/*
- * Add subcategory submit function
- */
-function TPA_add_subcategory_submit($form, &$form_state) {
-  unset($form_state['rebuild']); 
-  $form_state['redirect'] = 'subcategories';
-}
+
 
 /**
  * Implementation of hook_form_alter() for category_node_form.
@@ -138,10 +125,3 @@ function TPA_poi_content_form_category_node_form_alter(&$form, &$form_state) {
 }
 
 
-/*
- * Add category submit function
- */
-function TPA_add_category_submit($form, &$form_state) {
-  unset($form_state['rebuild']); 
-  $form_state['redirect'] = 'categories';
-}
