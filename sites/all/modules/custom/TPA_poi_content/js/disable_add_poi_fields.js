@@ -8,7 +8,6 @@
       // The field handler function
       var fieldHandler = function($) {
         var selected_subcategory_id = $( '#edit-field-subcategory-und' ).val();
-        alert( 'hi' );
         $.ajax({
           type: 'GET',
           url: 'http://www.local.malmo.se/feeds/?feed=poi-types',
