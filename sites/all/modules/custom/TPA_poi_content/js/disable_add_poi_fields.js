@@ -4,8 +4,11 @@
 (function ($) {
   Drupal.behaviors.disableFields = {
     attach: function(context, settings) {
-      $( '#edit-field-subcategory-und' ).change(function() {
+      
+      // The field handler function
+      var fieldHandler = function($) {
         var selected_subcategory_id = $( '#edit-field-subcategory-und' ).val();
+        alert( 'hi' );
         $.ajax({
           type: 'GET',
           url: 'http://www.local.malmo.se/feeds/?feed=poi-types',
@@ -35,7 +38,10 @@
             console.log( 'error: ', error );
           }
         });
-      });
+      }
+
+      // bind the field handler function to subcategory changes
+      $( '#edit-field-subcategory-und' ).change( fieldHandler($) );
     }
   }
 })(jQuery);
