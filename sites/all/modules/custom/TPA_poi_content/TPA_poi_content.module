@@ -10,7 +10,7 @@ require_once './' . drupal_get_path('module', 'TPA_poi_content') . '/feeds/poi.i
 require_once './' . drupal_get_path('module', 'TPA_poi_content') . '/includes/forms.inc';
 
 /**
- * Implementation of hook_block_info().
+ * Implementation of hook_menu().
  */
 function TPA_poi_content_menu() {
   $items['feeds/subcategories.xml'] = array(
@@ -51,6 +51,11 @@ function TPA_poi_content_block_info() {
     'info' => t('Link to add new category.'),
   );
 
+  // Map
+  $blocks['TPA_map'] = array(
+    'info' => t('Malmö stad map.'),
+  );
+
   return $blocks;
 }
 
@@ -81,6 +86,14 @@ function TPA_poi_content_block_view($delta = '') {
       $block['pages'] = 'categories';
       $link_text = t('Add category');
       $block['content'] = l( $link_text, 'node/add/category');
+      break;
+    case 'TPA_map':
+      $block['subject'] = '';
+      $block['content'] =   '<div data-role="page" id="mappage">
+                              <div data-role="content">
+                                <div id="map">MAP HERE</div>
+                              </div>
+                            </div>';
       break;
   }
 
