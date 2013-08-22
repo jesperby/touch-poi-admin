@@ -92,6 +92,9 @@ function TPA_poi_content_block_view($delta = '') {
  * Implementation of hook_form_alter() for poi_node_form.
  */
 function TPA_poi_content_form_poi_node_form_alter(&$form, &$form_state) {
+  // Include css and js for the map
+  require_once './' . drupal_get_path('module', 'TPA_poi_content') . '/includes/map.inc';
+
   // Disable / enable input fields based on chosen subcategory
   drupal_add_js(  drupal_get_path('module', 'TPA_poi_content') . '/js/disable_add_poi_fields.js', 
                   array(  'type' => 'file', 
