@@ -4,9 +4,7 @@
 (function ($) {
   Drupal.behaviors.disableFields = {
     attach: function(context, settings) {
-      
-      // The field handler function
-      var fieldHandler = function($) {
+      $( '#edit-field-subcategory-und' ).change( function() {
         var selected_subcategory_id = $( '#edit-field-subcategory-und' ).val();
         $.ajax({
           type: 'GET',
@@ -37,10 +35,7 @@
             console.log( 'error: ', error );
           }
         });
-      }
-
-      // bind the field handler function to subcategory changes
-      $( '#edit-field-subcategory-und' ).change( fieldHandler($) );
+      });
     }
   }
 })(jQuery);
