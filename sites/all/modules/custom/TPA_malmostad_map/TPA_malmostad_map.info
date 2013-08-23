@@ -1,0 +1,8 @@
+
+name = Malmö Stad Map
+description = Module to use the Malmö stad maps
+package = Touch Poi Admin
+core = 7.x
+
+
+

@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @file
+ * Module to handle pois, their content and categories
+ */
+
+require_once './' . drupal_get_path('module', 'TPA_malmostad_map') . '/feeds/subcategory.inc';
+require_once './' . drupal_get_path('module', 'TPA_malmostad_map') . '/feeds/poi.inc';
+require_once './' . drupal_get_path('module', 'TPA_malmostad_map') . '/includes/forms.inc';
+
+/**
+ * Implementation of hook_init
+ */
+function TPA_malmostad_map_init() {
+  // javascript settings
+  $my_settings = array(
+    'basepath' => drupal_get_path('module', 'TPA_malmostad_map') . '/map',
+    'animation_effect' => variable_get('effect', 'none')
+   );
+  drupal_add_js(array('TPA_malmostad_map' => $my_settings), 'setting');
+
+  // Include css and js for the map
+  require_once './' . drupal_get_path('module', 'TPA_malmostad_map') . '/includes/map.inc';
+
+  // Include map css and js
+  drupal_add_js(  drupal_get_path('module', 'TPA_malmostad_map') . '/js/map_init.js', 
+                  array(  'type' => 'file', 
+                          'group' => JS_DEFAULT ) );
+}
+
+
