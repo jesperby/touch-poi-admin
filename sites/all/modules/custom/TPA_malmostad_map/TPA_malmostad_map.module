@@ -5,6 +5,9 @@
  * Module to handle pois, their content and categories
  */
 
+/** 
+ * NOTE - MODULE UNDER CONSTRUCTION
+ */
 require_once './' . drupal_get_path('module', 'TPA_malmostad_map') . '/feeds/subcategory.inc';
 require_once './' . drupal_get_path('module', 'TPA_malmostad_map') . '/feeds/poi.inc';
 require_once './' . drupal_get_path('module', 'TPA_malmostad_map') . '/includes/forms.inc';
