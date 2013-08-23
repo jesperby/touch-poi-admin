@@ -52,6 +52,11 @@ function TPA_poi_content_block_info() {
     'info' => t('Link to add new category.'),
   );
 
+  // Add category
+  $blocks['TPA_iframe_map'] = array(
+    'info' => t('Malmö stad map'),
+  );
+
   return $blocks;
 }
 
@@ -83,6 +88,12 @@ function TPA_poi_content_block_view($delta = '') {
       $link_text = t('Add category');
       $block['content'] = l( $link_text, 'node/add/category');
       break;
+    case 'TPA_iframe_map':
+      $block['subject'] = '';
+      //$block['content'] = "<iframe src='http://localhost/msmap/index.html?config=eurov.js' />";
+      $block['content'] = "<iframe src='http://malmoevent.munkeby.se/map/leafsmap/?config=eurov.js&xy=13.0,55.6' />";
+      
+      break;
   }
 
   return $block;
@@ -94,6 +105,15 @@ function TPA_poi_content_block_view($delta = '') {
  */
 function TPA_poi_content_form_poi_node_form_alter(&$form, &$form_state) {
   
+  // Add the map
+  $form['malmostad_map'] = array(
+    "#markup" => "<div><iframe  src='http://malmoevent.munkeby.se/map/leafsmap/?config=eurov.js&xy=13.0,55.6'
+                                width=1200
+                                height=600 seamless>
+                       </iframe>
+                  </div>",
+    "#weight" => 2,
+  );
 
   // Disable / enable input fields based on chosen subcategory
   drupal_add_js(  drupal_get_path('module', 'TPA_poi_content') . '/js/disable_add_poi_fields.js', 
