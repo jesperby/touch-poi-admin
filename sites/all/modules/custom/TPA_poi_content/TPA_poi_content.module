@@ -104,23 +104,35 @@ function TPA_poi_content_block_view($delta = '') {
  * Implementation of hook_form_alter() for poi_node_form.
  */
 function TPA_poi_content_form_poi_node_form_alter(&$form, &$form_state) {
+  // Change max nr of chars for latitude and longitude fields
+  $form['field_latitude']['und'][0]['value']['#maxlength'] = 100;
+  $form['field_longitude']['und'][0]['value']['#maxlength'] = 100;
+
+  // Add map handling
+  drupal_add_js(  drupal_get_path('module', 'TPA_poi_content') . '/js/map.js', 
+                  array(  'type' => 'file', 
+                          'group' => JS_DEFAULT ) );
   
   // Add the map
   $form['malmostad_map'] = array(
-    "#markup" => "<div><iframe  src='http://malmoevent.munkeby.se/map/leafsmap/?config=eurov.js&xy=13.0,55.6'
+    "#markup" => "<iframe  src='http://localhost/msmap/index.html?config=eurov.js'
+                                onload='Drupal.behaviors.mapInit.map_loaded()'
                                 width=1200
-                                height=600 seamless>
+                                height=600 
+                                id='map_iframe' seamless>
                        </iframe>
-                  </div>",
+                  ",
     "#weight" => 2,
   );
+
+  
 
   // Disable / enable input fields based on chosen subcategory
   drupal_add_js(  drupal_get_path('module', 'TPA_poi_content') . '/js/disable_add_poi_fields.js', 
                   array(  'type' => 'file', 
                           'group' => JS_DEFAULT ) );
   
-  // Preview
+  // Remove preview button
   unset($form['actions']['preview']);
 
   // Submit
