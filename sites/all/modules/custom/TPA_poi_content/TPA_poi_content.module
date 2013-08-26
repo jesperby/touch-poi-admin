@@ -113,9 +113,19 @@ function TPA_poi_content_form_poi_node_form_alter(&$form, &$form_state) {
                   array(  'type' => 'file', 
                           'group' => JS_DEFAULT ) );
   
+  // Display poi marker on map if coords exist
+  $lat = $form['field_latitude']['und'][0]['value']['#entity']->field_latitude['und'][0]['value'];
+  $lon = $form['field_longitude']['und'][0]['value']['#entity']->field_longitude['und'][0]['value'];
+
+  if( $lat != '' && $lon != '' ) {
+    $coord_parameter = '&xy=' . $lon . "," . $lat;
+  } else {
+    $coord_parameter = '';
+  }
+
   // Add the map
   $form['malmostad_map'] = array(
-    "#markup" => "<iframe  src='http://localhost/msmap/index.html?config=eurov.js'
+    "#markup" => "<iframe  src='http://localhost/msmap/index.html?config=eurov.js" . $coord_parameter . "'
                                 onload='Drupal.behaviors.mapInit.map_loaded()'
                                 width=1200
                                 height=600 
