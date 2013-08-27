@@ -114,10 +114,15 @@ function TPA_poi_content_form_poi_node_form_alter(&$form, &$form_state) {
                           'group' => JS_DEFAULT ) );
   
   // Display poi marker on map if coords exist
-  $lat = $form['field_latitude']['und'][0]['value']['#entity']->field_latitude['und'][0]['value'];
-  $lon = $form['field_longitude']['und'][0]['value']['#entity']->field_longitude['und'][0]['value'];
-  $coord_parameter = ($lat != '' && $lon != '') ? '&xy=' . $lon . "," . $lat : '';
-  
+  if( isset( $form['field_latitude']['und'][0]['value']['#entity']->field_latitude['und'][0]['value'] ) &&
+      isset( $form['field_longitude']['und'][0]['value']['#entity']->field_longitude['und'][0]['value'] ) ) {
+    $lat = $form['field_latitude']['und'][0]['value']['#entity']->field_latitude['und'][0]['value'];
+    $lon = $form['field_longitude']['und'][0]['value']['#entity']->field_longitude['und'][0]['value'];
+    $coord_parameter = '&xy=' . $lon . "," . $lat;
+  } else {
+    $coord_parameter = '';
+  }
+
   // Add the map
   $map_url = base_path() . "malmostad_map/index.html?config=eurov.js";
   $form['malmostad_map'] = array(
