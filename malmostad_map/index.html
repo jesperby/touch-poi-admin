@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>LeafSmap</title>
+
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+<link rel="stylesheet" href="js/controls/leaflet-locatecontrol-gh-pages/src/L.Control.Locate.css" />
+<!--[if lt IE 9]>
+     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.ie.css" />
+     <link rel="stylesheet" href="js/controls/leaflet-locatecontrol-gh-pages/src/L.Control.Locate.ie.css" />
+<![endif]-->
+<link rel="stylesheet" href="lib/jquery.mobile-1.3.0/jquery.mobile-1.3.0.min.css" />
+<link rel="stylesheet" href="lib/smapdialog/smapdialog.css" />
+<link rel="stylesheet" href="lib/add-to-homescreen/style/add2home.css" />
+
+
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="js/controls/leaflet-eurovision/eurovision.css" />
+<link rel="stylesheet" href="js/controls/leaflet-search/search.css" />
+<link rel="stylesheet" href="js/controls/leaflet-choose-region/chooseregion.css" />
+<link rel="stylesheet" href="js/controls/leaflet-eurovision-view/eurovisionView.css" />
+
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css" />
+<![endif]-->
+<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+<script src="js/controls/leaflet-locatecontrol-gh-pages/src/L.Control.Locate.js"></script>
+<!--  script src="js/controls/leaflet-bouncemarker-master/bouncemarker.js"></script>-->
+<script src="js/utils.js"></script>
+<script src="js/controls/leaflet-eurovision/Eurovision.js"></script>
+<script src="js/controls/leaflet-eurovision-view/eurovisionView.js"></script>
+<script src="js/controls/leaflet-search/Search.js"></script>
+<script src="js/controls/leaflet-choose-region/ChooseRegion.js"></script>
+
+
+<script src="lib/proj4js/lib/proj4js-compressed.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="lib/jquery.mobile-1.3.0/jquery.mobile-1.3.0.min.js"></script>
+<script src="lib/smapdialog/smapdialog.js"></script>
+<script src="lib/overthrow.js"></script>
+<!--  script src="lib/add-to-homescreen/src/add2home.js"></script>-->
+
+
+<script src="js/LS.js"></script>
+<script src="js/Main.js"></script>
+
+
+
+<script>
+// "pagechange" was the only event that rendered the map ok.
+// When updating the jquery mobile version, check again if this event works or not.
+var _maploaded = false;
+$(document).on("pagechange", function() { 
+	
+	if (!_maploaded) {	
+		var mainInst = LS.Main;
+		mainInst.init();
+		_maploaded = true;
+	}
+	
+	$("#ev-btn-submit").html("Uppdatera position");
+	
+	/*
+	$("#ev-btn-submit").on("click", function(event){
+		var lonLat = LS.map.getCenter();
+	  alert(lonLat);
+	});
+	*/
+});
+</script>
+
+</head>
+<body>
+	<!--
+	<input type='text' id="TEST">TEST</input>
+	<div id="test1">test1</div>
+	<div id="test2">test2</div>
+	<div id="test3">test3</div>
+	-->
+	
+	<div data-role="page" id="mappage">
+		<div data-role="content">
+			<div id="map"></div>
+		</div>
+	</div>
+	
+</body>
+</html>

@@ -53,4 +53,8 @@ sites/all/modules/views
 
 # Map
 sites/all/modules/custom/TPA_poi_content/map
-malmostad_map
+malmostad_map/configs
+malmostad_map/css
+malmostad_map/img
+malmostad_map/js
+malmostad_map/lib
