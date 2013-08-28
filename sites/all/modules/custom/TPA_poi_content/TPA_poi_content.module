@@ -104,6 +104,14 @@ function TPA_poi_content_block_view($delta = '') {
  * Implementation of hook_form_alter() for poi_node_form.
  */
 function TPA_poi_content_form_poi_node_form_alter(&$form, &$form_state) {
+  // Include proj4js for coordinate transformation
+  drupal_add_js(  base_path() . 'malmostad_map/lib/proj4js/lib/proj4js-compressed.js', 
+                  array(  'type' => 'file', 
+                          'group' => JS_DEFAULT ) );  
+
+  // Include the JQuery ui autocomplete for the address autocomplete 
+  drupal_add_library('system', 'ui.autocomplete');
+  
   // Change max nr of chars for latitude and longitude fields
   $form['field_latitude']['und'][0]['value']['#maxlength'] = 100;
   $form['field_longitude']['und'][0]['value']['#maxlength'] = 100;
