@@ -45,7 +45,7 @@
 
       // Reload map with marker on chosen position
       var map_coords = data.east + "," + data.north;
-      $('#map_iframe').attr('src', 'http://' + this.getBaseUrl() + '/malmostad_map/index.html?config=eurov.js&xy=' + map_coords);
+      $('#map_iframe').attr('src', Drupal.behaviors.TPA_poi_content_config.config['malmostad_map_url'] + '&xy=' + map_coords);
     },
 
 

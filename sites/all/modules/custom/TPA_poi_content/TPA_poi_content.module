@@ -104,6 +104,11 @@ function TPA_poi_content_block_view($delta = '') {
  * Implementation of hook_form_alter() for poi_node_form.
  */
 function TPA_poi_content_form_poi_node_form_alter(&$form, &$form_state) {
+  // Include js config
+  drupal_add_js(  drupal_get_path('module', 'TPA_poi_content') . '/js/config.js', 
+                  array(  'type' => 'file', 
+                          'group' => JS_DEFAULT ) );
+
   // Include proj4js for coordinate transformation
   drupal_add_js(  base_path() . 'malmostad_map/lib/proj4js/lib/proj4js-compressed.js', 
                   array(  'type' => 'file', 
