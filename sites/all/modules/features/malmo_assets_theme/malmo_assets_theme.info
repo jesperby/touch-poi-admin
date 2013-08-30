@@ -5,4 +5,5 @@ package = Malmö Stad
 dependencies[] = TPA_theming
 dependencies[] = fe_block
 features[fe_block_settings][] = TPA_theming-TPA_footer_nav
+features[fe_block_settings][] = user-login
 features[features_api][] = api:2

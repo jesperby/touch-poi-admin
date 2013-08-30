@@ -44,5 +44,37 @@ function malmo_assets_theme_default_fe_block_settings() {
     'visibility' => 0,
   );
 
+  $export['user-login'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => 'login',
+    'module' => 'user',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'TPA_malmo_assets' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'TPA_malmo_assets',
+        'weight' => 0,
+      ),
+      'bartik' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'seven',
+        'weight' => 10,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
   return $export;
 }
