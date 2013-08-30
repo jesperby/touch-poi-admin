@@ -5,8 +5,8 @@
  */
 
 // Theme helper functions
-require_once './' . drupal_get_path('theme', 'touch_poi') . '/functions/theme-helper-functions.inc';
-require_once './' . drupal_get_path('theme', 'touch_poi') . '/includes/theme.inc';
+require_once './' . drupal_get_path('theme', 'TPA_malmo_assets') . '/functions/theme-helper-functions.inc';
+require_once './' . drupal_get_path('theme', 'TPA_malmo_assets') . '/includes/theme.inc';
 
 
 /********************************
@@ -20,12 +20,12 @@ require_once './' . drupal_get_path('theme', 'touch_poi') . '/includes/theme.inc
  * @param array &$variables
  *   Template variables.
  */
-function touch_poi_preprocess_html(&$vars) {
+function TPA_malmo_assets_preprocess_html(&$vars) {
   // Assets config
-  require_once './' . drupal_get_path('theme', 'touch_poi') . '/config/assets-config.inc';
+  require_once './' . drupal_get_path('theme', 'TPA_malmo_assets') . '/config/assets-config.inc';
   
   // Determine asset url based on environment
-  $assets_url = touch_poi_localenv( $assets_config ) && $assets_config['testenv_assets']=='local' ? "//" . $assets_config['assetsurl_local'] : "//" . $assets_config['assetsurl_prod'];
+  $assets_url = TPA_malmo_assets_localenv( $assets_config ) && $assets_config['testenv_assets']=='local' ? "//" . $assets_config['assetsurl_local'] : "//" . $assets_config['assetsurl_prod'];
   
   // Include assets-3.0 resources as specified in asset documentation
 
@@ -79,7 +79,7 @@ function touch_poi_preprocess_html(&$vars) {
   drupal_add_js( $data, $options );
 }
 
-function touch_poi_preprocess_region(&$variables) {
+function TPA_malmo_assets_preprocess_region(&$variables) {
   // TODO - Remove class bigfoot from region template
 }
 
@@ -92,7 +92,7 @@ function touch_poi_preprocess_region(&$variables) {
 /**
  * Overriding advanced forum theme function to show list of types that can be posted in forum.
  */
-function touch_poi_advanced_forum_node_type_create_list(&$variables) {
+function TPA_malmo_assets_advanced_forum_node_type_create_list(&$variables) {
   $forum_id = $variables['forum_id'];
 
   // Get the list of node types to display links for.
@@ -126,7 +126,7 @@ function touch_poi_advanced_forum_node_type_create_list(&$variables) {
  *   An associative array containing:
  *   - breadcrumb: An array containing the breadcrumb links.
  */
-function touch_poi_breadcrumb($variables) {
+function TPA_malmo_assets_breadcrumb($variables) {
   $breadcrumb = $variables['breadcrumb'];
 
   if (!empty($breadcrumb)) {
@@ -142,7 +142,7 @@ function touch_poi_breadcrumb($variables) {
 /**
  * Preprocess function for topic list template - advanced-forum-topic-list-view.tpl.php
  */
-function touch_poi_preprocess_advanced_forum_topic_list_view(&$variables) {
+function TPA_malmo_assets_preprocess_advanced_forum_topic_list_view(&$variables) {
   
   // Remove topic icon and show new topics with bold font
   foreach( $variables['rows'] as $count => $row ) {
