@@ -39,10 +39,10 @@ xmlrpc.php
 # Ignore contributed modules
 sites/all/modules/contrib
 
-# Touch poi admin theme
-sites/all/themes/touch_poi/config/assets-config.inc
-sites/all/themes/touch_poi/.sass-cache
-sites/all/themes/touch_poi/stylesheets/*.css
+# Malmö assets admin theme
+sites/all/themes/TPA_malmo_assets/config/assets-config.inc
+sites/all/themes/TPA_malmo_assets/.sass-cache
+sites/all/themes/TPA_malmo_assets/stylesheets/*.css
 
 
 # Map
