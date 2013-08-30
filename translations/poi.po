@@ -1,0 +1,56 @@
+# Swedish translation of Drupal core (7.23)
+# Copyright (c) 2013 by the Swedish translation team
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal core (7.23)\n"
+"POT-Creation-Date: 2013-08-09 07:03+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Language-Team: Swedish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgid "Pois"
+msgstr "Platser"
+
+msgid "Subcategories"
+msgstr "Platskategorier"
+
+msgid "Categories"
+msgstr "Kategorier"
+
+msgid "- Any -"
+msgstr "- Alla -"
+
+msgid "Add poi"
+msgstr "Lägg till plats"
+
+msgid "Add subcategory"
+msgstr "Lägg till platskategori"
+
+msgid "Apply"
+msgstr "Välj"
+
+msgid "Description"
+msgstr "Beskrivning"
+
+msgid "Poi image"
+msgstr "Bild"
+
+msgid "Subcategory"
+msgstr "Platskategori"
+
+msgid "Latitude"
+msgstr "Lattitud"
+
+msgid "Longitude"
+msgstr "Longitud"
+
+msgid "Closed"
+msgstr "Stängd"
+
+
+
+

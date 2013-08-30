@@ -79,7 +79,7 @@ function TPA_poi_content_block_view($delta = '') {
     case 'TPA_add_subcategory_link':
       $block['subject'] = '';
       $block['pages'] = 'subcategories';
-      $link_text = t('Add sub-category');
+      $link_text = t('Add subcategory');
       $block['content'] = l( $link_text, 'node/add/subcategory');
       break;
     case 'TPA_add_category_link':
