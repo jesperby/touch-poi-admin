@@ -1,0 +1,21 @@
+;; Info ;;
+
+name = Malmö Assets
+description = Theme for Malmö town touch poi admin, based on Malmö stad assets
+core = 7.x
+
+
+;; Regions ;;
+
+regions[header]               = Header
+regions[highlighted]          = Highlighted content
+regions[help]          				= Content help section
+regions[content]              = Content
+regions[sidebar_first]        = First sidebar
+regions[sidebar_second]       = Second sidebar
+regions[footer]               = Footer
+
+
+;; Styles ;;
+
+stylesheets[all][] = stylesheets/application.css
