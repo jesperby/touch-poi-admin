@@ -16,3 +16,14 @@ function TPA_theming_theme() {
         ),
     );
 }
+
+/**
+ * Implementation of hook_custom_theme
+ */
+function TPA_theming_custom_theme() {
+	if (arg(0) == 'subcategories' ) {
+		//print "here";
+		//die;
+    return "TPA_malmo_assets";
+  }
+}
