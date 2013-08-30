@@ -1,0 +1,8 @@
+name = Malmo Assets theme
+description = All settings for the Malmö Assets theme
+core = 7.x
+package = Malmö Stad
+dependencies[] = TPA_theming
+dependencies[] = fe_block
+features[fe_block_settings][] = TPA_theming-TPA_footer_nav
+features[features_api][] = api:2
