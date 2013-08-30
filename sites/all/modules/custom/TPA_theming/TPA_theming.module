@@ -5,6 +5,8 @@
  * Helper module for anything theming
  */
 
+require_once( drupal_get_path('module', 'TPA_theming') . "/includes/block-content.inc" );
+
 
 /**
  * Implementation of hook_theme().
@@ -26,4 +28,32 @@ function TPA_theming_custom_theme() {
 		//die;
     return "TPA_malmo_assets";
   }
+}
+
+
+/**
+ * Implementation of hook_block_info().
+ */
+function TPA_theming_block_info() {    
+  $blocks['TPA_footer_nav'] = array(
+    'info' => t('TPA footer navigation'),
+  );
+
+  return $blocks;
+}
+
+
+/**
+ * Implementation of hook_block_view().
+ */
+function TPA_theming_block_view($delta = '') {
+	$block = '';
+  switch ($delta) {
+    case 'TPA_footer_nav':
+    	$block['subject'] = '';
+      $block['content'] = TPA_theming_footer_nav();
+      break;
+  }
+
+  return $block;
 }
