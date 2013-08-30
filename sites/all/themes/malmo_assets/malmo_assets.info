@@ -1,7 +1,7 @@
 ;; Info ;;
 
 name = Touch poi admin
-description = Theme for Malmö town touch poi admin
+description = Theme for Malmö town touch poi admin, based on Malmö stad assets
 core = 7.x
 
 
