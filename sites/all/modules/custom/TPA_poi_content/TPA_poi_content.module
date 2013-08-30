@@ -33,10 +33,6 @@ function TPA_poi_content_menu() {
  * Implementation of hook_block_info().
  */
 function TPA_poi_content_block_info() {    
-  $blocks['TPA_forum_footer_nav'] = array(
-    'info' => t('Forum footer navigation'),
-  );
-
   // Add poi
   $blocks['TPA_add_poi_link'] = array(
     'info' => t('Link to add new poi.'),
@@ -66,10 +62,6 @@ function TPA_poi_content_block_info() {
 function TPA_poi_content_block_view($delta = '') {
 	$block = '';
   switch ($delta) {
-    case 'TPA_forum_footer_nav':
-    	$block['subject'] = '';
-      $block['content'] = touch_poi_footer_nav();
-      break;
     case 'TPA_add_poi_link':
       $block['subject'] = '';
       $block['pages'] = 'pois';
