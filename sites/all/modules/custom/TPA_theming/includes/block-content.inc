@@ -9,8 +9,8 @@ function TPA_theming_footer_nav() {
 	
 	// Initialize columns
 	$column1 = array( 'login' => '');
-	//$column2 = array( 'todo' => l("TODO", "") );
-	//$column3 = array( 'todo' => l("TODO", ""));
+	$column2 = array( '' => l("", "") );
+	$column3 = array( '' => l("", ""));
 
 	// Login
 	if( user_is_logged_in() ) {
