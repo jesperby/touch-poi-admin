@@ -15,9 +15,10 @@ The following modules are used:
 Installation
 ============
 
-* First perform basic drupal 7 installation
+* Basic drupal 7 installation
 * Download and enable module depencies
 * Enable all features
+* In TPA_poi_content module, rename config-example.js to config.js  and edit
 
 License
 =======
