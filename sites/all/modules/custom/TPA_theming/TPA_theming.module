@@ -13,7 +13,7 @@ require_once( drupal_get_path('module', 'TPA_theming') . "/includes/block-conten
  */
 function TPA_theming_theme() {
     return array(
-        'asset_button_link' => array(
+        'TPA_asset_button_link' => array(
             'render element' => 'element',
         ),
     );

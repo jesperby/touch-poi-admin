@@ -9,7 +9,7 @@
 /**
  * Asset button with text linking to url
  */
-function theme_asset_button_link( $vars ) {
+function theme_TPA_asset_button_link( $vars ) {
 	$url = $vars['url'];
 	$text = $vars['text'];
 

@@ -165,6 +165,16 @@ function TPA_malmo_assets_preprocess_advanced_forum_topic_list_view(&$variables)
 }
 
 
+function TPA_malmo_assets_preprocess_block(&$variables) {
+  
+  if( $variables['block_html_id'] == 'block-tpa-poi-content-tpa-add-subcategory-link' ) {
+    
+    $variables['content'] = theme(  'TPA_asset_button_link', array(
+                                      'url' => 'node/add/subcategory', 
+                                      'text' => t('Add subcategory') ) );
+  } 
+}
+
 
 function TPA_malmo_assets_links__system_main_menu($variables) {
   $html = "<div class='hej'>\n";
