@@ -23,9 +23,11 @@ function TPA_theming_theme() {
  * Implementation of hook_custom_theme
  */
 function TPA_theming_custom_theme() {
-	if (arg(0) == 'subcategories' ) {
-		//print "here";
-		//die;
+	if (	arg(0) == '' || 
+				arg(0) == 'subcategories' || 
+				arg(0) == 'categories' || 
+				arg(0) == 'pois' || 
+				(arg(0) == 'user' && arg(1) == 'login' )) {
     return "TPA_malmo_assets";
   }
 }
