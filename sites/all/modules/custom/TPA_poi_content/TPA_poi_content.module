@@ -5,176 +5,34 @@
  * Module to handle pois, their content and categories
  */
 
+/**
+ * Various
+ */
 require_once './' . drupal_get_path('module', 'TPA_poi_content') . '/feeds/subcategory.inc';
 require_once './' . drupal_get_path('module', 'TPA_poi_content') . '/feeds/poi.inc';
 require_once './' . drupal_get_path('module', 'TPA_poi_content') . '/includes/forms.inc';
 
-
-/**
- * Implementation of hook_menu().
+/** 
+ * Hooks
  */
-function TPA_poi_content_menu() {
-  $items['feeds/subcategories.xml'] = array(
-      'page callback' => 'TPA_poi_content_subcategory_feed',
-      'access arguments' => array('access content'),
-  );
 
-  $items['feeds/pois.xml'] = array(
-      'page callback' => 'TPA_poi_content_poi_feed',
-      'access arguments' => array('access content'),
-  );
+// Hook_menu
+require_once './' . drupal_get_path('module', 'TPA_poi_content') . '/hooks/hook_menu.inc';
 
-  return $items;
-}    
+// Hook block_info
+require_once './' . drupal_get_path('module', 'TPA_poi_content') . '/hooks/hook_block_info.inc';
 
+// Hook block_view
+require_once './' . drupal_get_path('module', 'TPA_poi_content') . '/hooks/hook_block_view.inc';
 
+// Hook form_poi_node_form_alter
+require_once './' . drupal_get_path('module', 'TPA_poi_content') . '/hooks/hook_form_poi_node_form_alter.inc';
 
-/**
- * Implementation of hook_block_info().
- */
-function TPA_poi_content_block_info() {    
-  // Add poi
-  $blocks['TPA_add_poi_link'] = array(
-    'info' => t('Link to add new poi.'),
-  );
+// Hook form_subcategory_node_form_alter
+require_once './' . drupal_get_path('module', 'TPA_poi_content') . '/hooks/hook_form_subcategory_node_form_alter.inc';
 
-  // Add subcategory
-  $blocks['TPA_add_subcategory_link'] = array(
-    'info' => t('Link to add new subcategory.'),
-  );
+// Hook form_category_node_form_alter
+require_once './' . drupal_get_path('module', 'TPA_poi_content') . '/hooks/hook_form_category_node_form_alter.inc';
 
-  // Add category
-  $blocks['TPA_add_category_link'] = array(
-    'info' => t('Link to add new category.'),
-  );
-
-  // Add category
-  $blocks['TPA_iframe_map'] = array(
-    'info' => t('Malmö stad map'),
-  );
-
-  return $blocks;
-}
-
-/**
- * Implementation of hook_block_view().
- */
-function TPA_poi_content_block_view($delta = '') {
-	$block = '';
-  switch ($delta) {
-    case 'TPA_add_poi_link':
-      $block['subject'] = '';
-      $block['pages'] = 'pois';
-      $link_text = t('Add poi');
-      $block['content'] = l( $link_text, 'node/add/poi');
-      break;
-    case 'TPA_add_subcategory_link':
-      $block['subject'] = '';
-      $block['pages'] = 'subcategories';
-      $link_text = t('Add subcategory');
-      $block['content'] = l( $link_text, 'node/add/subcategory');
-      break;
-    case 'TPA_add_category_link':
-      $block['subject'] = '';
-      $block['pages'] = 'categories';
-      $link_text = t('Add category');
-      $block['content'] = l( $link_text, 'node/add/category');
-      break;
-    case 'TPA_iframe_map':
-      $block['subject'] = '';
-      //$block['content'] = "<iframe src='http://localhost/msmap/index.html?config=eurov.js' />";
-      $block['content'] = "<iframe src='http://malmoevent.munkeby.se/map/leafsmap/?config=eurov.js&xy=13.0,55.6' />";
-      
-      break;
-  }
-
-  return $block;
-}
-
-
-/**
- * Implementation of hook_form_alter() for poi_node_form.
- */
-function TPA_poi_content_form_poi_node_form_alter(&$form, &$form_state) {
-  // Include js config
-  drupal_add_js(  drupal_get_path('module', 'TPA_poi_content') . '/js/config.js', 
-                  array(  'type' => 'file', 
-                          'group' => JS_DEFAULT ) );
-
-  // Include proj4js for coordinate transformation
-  drupal_add_js(  base_path() . 'malmostad_map/lib/proj4js/lib/proj4js-compressed.js', 
-                  array(  'type' => 'file', 
-                          'group' => JS_DEFAULT ) );  
-
-  // Include the JQuery ui autocomplete for the address autocomplete 
-  drupal_add_library('system', 'ui.autocomplete');
-  
-  // Change max nr of chars for latitude and longitude fields
-  $form['field_latitude']['und'][0]['value']['#maxlength'] = 100;
-  $form['field_longitude']['und'][0]['value']['#maxlength'] = 100;
-
-  // Add map handling
-  drupal_add_js(  drupal_get_path('module', 'TPA_poi_content') . '/js/map.js', 
-                  array(  'type' => 'file', 
-                          'group' => JS_DEFAULT ) );
-  
-  // Display poi marker on map if coords exist
-  if( isset( $form['field_latitude']['und'][0]['value']['#entity']->field_latitude['und'][0]['value'] ) &&
-      isset( $form['field_longitude']['und'][0]['value']['#entity']->field_longitude['und'][0]['value'] ) ) {
-    $lat = $form['field_latitude']['und'][0]['value']['#entity']->field_latitude['und'][0]['value'];
-    $lon = $form['field_longitude']['und'][0]['value']['#entity']->field_longitude['und'][0]['value'];
-    $coord_parameter = '&xy=' . $lon . "," . $lat;
-  } else {
-    $coord_parameter = '';
-  }
-
-  // Add the map
-  $map_url = base_path() . "malmostad_map/index.html?config=eurov.js";
-  $form['malmostad_map'] = array(
-    "#markup" => "<iframe  src='$map_url$coord_parameter'
-                                onload='Drupal.behaviors.mapHandler.map_loaded()'
-                                width=1200
-                                height=600 
-                                id='map_iframe' seamless>
-                       </iframe>
-                  ",
-    "#weight" => 2,
-  );
-
-  // Disable / enable input fields based on chosen subcategory
-  drupal_add_js(  drupal_get_path('module', 'TPA_poi_content') . '/js/disable_add_poi_fields.js', 
-                  array(  'type' => 'file', 
-                          'group' => JS_DEFAULT ) );  
-  // Remove preview button
-  unset($form['actions']['preview']);
-
-  // Submit
-  $form['actions']['submit']['#submit'][] = 'TPA_add_poi_submit';
-}
-
-/**
- * Implementation of hook_form_alter() for subcategory_node_form.
- */
-function TPA_poi_content_form_subcategory_node_form_alter(&$form, &$form_state) {
-  // Preview
-  unset($form['actions']['preview']);
-
-  // Submit
-  $form['actions']['submit']['#submit'][] = 'TPA_add_subcategory_submit';
-}
-
-
-
-
-/**
- * Implementation of hook_form_alter() for category_node_form.
- */
-function TPA_poi_content_form_category_node_form_alter(&$form, &$form_state) {
-  // Preview
-  unset($form['actions']['preview']);
-
-  // Submit
-  $form['actions']['submit']['#submit'][] = 'TPA_add_category_submit';
-}
 
 
