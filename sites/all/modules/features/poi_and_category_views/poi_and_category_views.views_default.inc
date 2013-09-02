@@ -22,14 +22,20 @@ function poi_and_category_views_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Subcategories';
+  $handler->display->display_options['title'] = 'Platskategorier';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Välj';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Återställ';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« första';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ föregående';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'nästa ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'sista »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
@@ -56,26 +62,26 @@ function poi_and_category_views_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Field: Content: Title */
+  /* Fält: Innehåll: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Delete link */
+  /* Fält: Innehåll: Delete link */
   $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
   $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
-  /* Field: Content: Edit link */
+  /* Fält: Innehåll: Edit link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
-  /* Sort criterion: Content: Title */
+  /* Sort criterion: Innehåll: Titel */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Innehåll: Publicerad */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -83,47 +89,50 @@ function poi_and_category_views_views_default_views() {
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
 
-  /* Display: Pois */
-  $handler = $view->new_display('page', 'Pois', 'page');
+  /* Display: Platser */
+  $handler = $view->new_display('page', 'Platser', 'page');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Pois';
+  $handler->display->display_options['title'] = 'Platser';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Title */
+  /* Fält: Innehåll: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Edit link */
+  /* Fält: Innehåll: Edit link */
   $handler->display->display_options['fields']['edit_node_1']['id'] = 'edit_node_1';
   $handler->display->display_options['fields']['edit_node_1']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node_1']['field'] = 'edit_node';
-  /* Field: Content: Delete link */
+  $handler->display->display_options['fields']['edit_node_1']['label'] = '';
+  /* Fält: Innehåll: Delete link */
   $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
   $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['label'] = '';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Innehåll: Publicerad */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Innehåll: Typ */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'poi' => 'poi',
   );
-  /* Filter criterion: Content: Subcategory (field_subcategory) */
+  /* Filter criterion: Innehåll: Platskategori (field_subcategory) */
   $handler->display->display_options['filters']['field_subcategory_target_id']['id'] = 'field_subcategory_target_id';
   $handler->display->display_options['filters']['field_subcategory_target_id']['table'] = 'field_data_field_subcategory';
   $handler->display->display_options['filters']['field_subcategory_target_id']['field'] = 'field_subcategory_target_id';
   $handler->display->display_options['filters']['field_subcategory_target_id']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_subcategory_target_id']['expose']['operator_id'] = 'field_subcategory_target_id_op';
-  $handler->display->display_options['filters']['field_subcategory_target_id']['expose']['label'] = 'Choose subcategory';
   $handler->display->display_options['filters']['field_subcategory_target_id']['expose']['operator'] = 'field_subcategory_target_id_op';
   $handler->display->display_options['filters']['field_subcategory_target_id']['expose']['identifier'] = 'field_subcategory_target_id';
   $handler->display->display_options['filters']['field_subcategory_target_id']['expose']['remember'] = TRUE;
@@ -131,13 +140,14 @@ function poi_and_category_views_views_default_views() {
     2 => '2',
     3 => '3',
     1 => 0,
+    5 => 0,
   );
   $handler->display->display_options['path'] = 'pois';
 
-  /* Display: Subcategories */
-  $handler = $view->new_display('page', 'Subcategories', 'page_1');
+  /* Display: Platskategorier */
+  $handler = $view->new_display('page', 'Platskategorier', 'page_1');
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Map icon */
+  /* Fält: Innehåll: Ikon för karta */
   $handler->display->display_options['fields']['field_map_icon']['id'] = 'field_map_icon';
   $handler->display->display_options['fields']['field_map_icon']['table'] = 'field_data_field_map_icon';
   $handler->display->display_options['fields']['field_map_icon']['field'] = 'field_map_icon';
@@ -148,7 +158,7 @@ function poi_and_category_views_views_default_views() {
     'image_style' => '',
     'image_link' => '',
   );
-  /* Field: Content: Title */
+  /* Fält: Innehåll: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -157,30 +167,33 @@ function poi_and_category_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Delete link */
+  /* Fält: Innehåll: Delete link */
   $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
   $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
-  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['delete_node']['label'] = '';
+  $handler->display->display_options['fields']['delete_node']['element_label_colon'] = FALSE;
+  /* Fält: Innehåll: Edit link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Innehåll: Publicerad */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Category (field_category) */
+  /* Filter criterion: Innehåll: Kategori (field_category) */
   $handler->display->display_options['filters']['field_category_target_id']['id'] = 'field_category_target_id';
   $handler->display->display_options['filters']['field_category_target_id']['table'] = 'field_data_field_category';
   $handler->display->display_options['filters']['field_category_target_id']['field'] = 'field_category_target_id';
   $handler->display->display_options['filters']['field_category_target_id']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_category_target_id']['expose']['operator_id'] = 'field_category_target_id_op';
-  $handler->display->display_options['filters']['field_category_target_id']['expose']['label'] = 'Choose category';
   $handler->display->display_options['filters']['field_category_target_id']['expose']['operator'] = 'field_category_target_id_op';
   $handler->display->display_options['filters']['field_category_target_id']['expose']['identifier'] = 'field_category_target_id';
   $handler->display->display_options['filters']['field_category_target_id']['expose']['remember'] = TRUE;
@@ -188,8 +201,9 @@ function poi_and_category_views_views_default_views() {
     2 => '2',
     3 => '3',
     1 => 0,
+    5 => 0,
   );
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Innehåll: Typ */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -197,7 +211,7 @@ function poi_and_category_views_views_default_views() {
     'subcategory' => 'subcategory',
   );
   $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
-  $handler->display->display_options['filters']['type']['expose']['label'] = 'Type';
+  $handler->display->display_options['filters']['type']['expose']['label'] = 'Typ';
   $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
   $handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
   $handler->display->display_options['filters']['type']['expose']['remember_roles'] = array(
@@ -207,12 +221,12 @@ function poi_and_category_views_views_default_views() {
   );
   $handler->display->display_options['path'] = 'subcategories';
 
-  /* Display: Categories */
-  $handler = $view->new_display('page', 'Categories', 'page_2');
+  /* Display: Kategorier */
+  $handler = $view->new_display('page', 'Kategorier', 'page_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Categories';
+  $handler->display->display_options['title'] = 'Kategorier';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Title */
+  /* Fält: Innehåll: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -221,29 +235,33 @@ function poi_and_category_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Delete link */
+  /* Fält: Innehåll: Delete link */
   $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
   $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
-  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['delete_node']['label'] = '';
+  $handler->display->display_options['fields']['delete_node']['element_label_colon'] = FALSE;
+  /* Fält: Innehåll: Edit link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Title */
+  /* Sort criterion: Innehåll: Titel */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Innehåll: Publicerad */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Innehåll: Typ */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -251,6 +269,28 @@ function poi_and_category_views_views_default_views() {
     'category' => 'category',
   );
   $handler->display->display_options['path'] = 'categories';
+  $translatables['pois'] = array(
+    t('Master'),
+    t('Platskategorier'),
+    t('more'),
+    t('Välj'),
+    t('Återställ'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« första'),
+    t('‹ föregående'),
+    t('nästa ›'),
+    t('sista »'),
+    t('Delete link'),
+    t('Edit link'),
+    t('Platser'),
+    t('Typ'),
+    t('Kategorier'),
+  );
   $export['pois'] = $view;
 
   return $export;
