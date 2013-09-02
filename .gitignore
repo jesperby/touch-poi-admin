@@ -41,7 +41,7 @@ sites/all/modules/contrib
 
 # Malmö assets admin theme
 sites/all/themes/TPA_malmo_assets/config/assets-config.inc
-sites/all/themes/TPA_malmo_assets/.sass-cache
+.sass-cache
 sites/all/themes/TPA_malmo_assets/stylesheets/*.css
 
 
