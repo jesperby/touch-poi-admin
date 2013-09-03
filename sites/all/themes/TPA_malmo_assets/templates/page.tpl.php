@@ -73,7 +73,7 @@
  */
 ?>
   <div class="service-title">
-    <a href='<?php print base_path(); ?>'>Hem</a>
+    <?php print render($page['assets_service_title']); ?>
   </div>
   
   <div id="page-wrapper"><div id="page">
