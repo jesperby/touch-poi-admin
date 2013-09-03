@@ -27,7 +27,7 @@ require_once './' . drupal_get_path('theme', 'TPA_malmo_assets') . '/hooks/hook_
 require_once './' . drupal_get_path('theme', 'TPA_malmo_assets') . '/hooks/hook_preprocess_views_view.inc';
 
 // Hook menu_link
-require_once './' . drupal_get_path('theme', 'TPA_malmo_assets') . '/hooks/hook_links__system_main_menu.inc';
+require_once './' . drupal_get_path('theme', 'TPA_malmo_assets') . '/hooks/hook_menu_link.inc';
 
 
 
