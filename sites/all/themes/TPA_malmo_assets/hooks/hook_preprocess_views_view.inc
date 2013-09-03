@@ -1,8 +1,9 @@
 <?php
 
 function TPA_malmo_assets_preprocess_views_view(&$vars) {
-  if( $vars['display_id'] == 'page' ) {
-  	
+  if( $vars['display_id'] == 'page' || 
+  	  $vars['display_id'] == 'page_1' ) {
+
   	// Use asset btn design for select input
   	$pattern = 'class=\"form-select\"';
   	$replacement = 'class="btn"';
