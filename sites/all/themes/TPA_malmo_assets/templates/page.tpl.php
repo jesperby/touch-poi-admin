@@ -73,9 +73,7 @@
  */
 ?>
   <div class="service-title">
-    <?php if ($breadcrumb): ?>
-      <div id="breadcrumb"><?php print $breadcrumb; ?></div>
-    <?php endif; ?>
+    <a href='<?php print base_path(); ?>'>Hem</a>
   </div>
   
   <div id="page-wrapper"><div id="page">
