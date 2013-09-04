@@ -36,7 +36,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'body',
-    'label' => 'Description',
+    'label' => 'Beskrivning',
     'required' => 0,
     'settings' => array(
       'display_summary' => 0,
@@ -122,7 +122,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_closed',
-    'label' => 'Closed',
+    'label' => 'Stängd',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -166,7 +166,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_latitude',
-    'label' => 'Latitude',
+    'label' => 'Latitud',
     'required' => 0,
     'settings' => array(
       'max' => '',
@@ -212,7 +212,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_longitude',
-    'label' => 'Longitude',
+    'label' => 'Longitud',
     'required' => 0,
     'settings' => array(
       'max' => '',
@@ -255,7 +255,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_poi_image',
-    'label' => 'Poi image',
+    'label' => 'Bild för plats',
     'required' => 0,
     'settings' => array(
       'alt_field' => 0,
@@ -305,7 +305,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_subcategory',
-    'label' => 'Subcategory',
+    'label' => 'Platskategori',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -345,7 +345,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'body',
-    'label' => 'Body',
+    'label' => 'Beskrivning',
     'required' => 0,
     'settings' => array(
       'display_summary' => 0,
@@ -391,7 +391,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_activate_closable',
-    'label' => 'Activate closable',
+    'label' => 'Stängbara objekt',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -434,7 +434,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_activate_error_reporting',
-    'label' => 'Activate error reporting',
+    'label' => 'Aktivera felanmälan',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -477,7 +477,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_activate_images',
-    'label' => 'Activate images',
+    'label' => 'Aktivera bilder',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -520,7 +520,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_activate_seasons',
-    'label' => 'Activate seasons',
+    'label' => 'Aktivera säsongstider',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -561,7 +561,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_category',
-    'label' => 'Category',
+    'label' => 'Kategori',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -600,7 +600,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_list_closed_icon',
-    'label' => 'List closed icon',
+    'label' => 'Stängd ikon för lista',
     'required' => 1,
     'settings' => array(
       'alt_field' => 0,
@@ -650,7 +650,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_list_icon',
-    'label' => 'List icon',
+    'label' => 'Ikon för lista',
     'required' => 1,
     'settings' => array(
       'alt_field' => 0,
@@ -700,7 +700,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_map_closed_icon',
-    'label' => 'Map closed icon',
+    'label' => 'Stängd ikon för karta',
     'required' => 1,
     'settings' => array(
       'alt_field' => 0,
@@ -750,7 +750,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_map_icon',
-    'label' => 'Map icon',
+    'label' => 'Ikon för karta',
     'required' => 1,
     'settings' => array(
       'alt_field' => 0,
@@ -777,23 +777,22 @@ function poi_and_categories_content_types_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Activate closable');
-  t('Activate error reporting');
-  t('Activate images');
-  t('Activate seasons');
   t('Adress');
-  t('Body');
-  t('Category');
-  t('Closed');
-  t('Description');
-  t('Latitude');
-  t('List closed icon');
-  t('List icon');
-  t('Longitude');
-  t('Map closed icon');
-  t('Map icon');
-  t('Poi image');
-  t('Subcategory');
+  t('Aktivera bilder');
+  t('Aktivera felanmälan');
+  t('Aktivera säsongstider');
+  t('Beskrivning');
+  t('Bild för plats');
+  t('Ikon för karta');
+  t('Ikon för lista');
+  t('Kategori');
+  t('Latitud');
+  t('Longitud');
+  t('Platskategori');
+  t('Stängbara objekt');
+  t('Stängd');
+  t('Stängd ikon för karta');
+  t('Stängd ikon för lista');
 
   return $field_instances;
 }

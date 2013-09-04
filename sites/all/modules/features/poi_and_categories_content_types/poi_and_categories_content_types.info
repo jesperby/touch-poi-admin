@@ -6,6 +6,7 @@ dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = image
 dependencies[] = list
+dependencies[] = node
 dependencies[] = number
 dependencies[] = options
 dependencies[] = text
