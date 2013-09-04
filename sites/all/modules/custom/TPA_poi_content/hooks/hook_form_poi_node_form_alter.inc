@@ -41,7 +41,7 @@ function TPA_poi_content_form_poi_node_form_alter(&$form, &$form_state) {
   $form['malmostad_map'] = array(
     "#markup" => "<iframe  src='$map_url$coord_parameter'
                                 onload='Drupal.behaviors.mapHandler.map_loaded()'
-                                width=1200
+                                width=860
                                 height=600 
                                 id='map_iframe' seamless>
                        </iframe>
