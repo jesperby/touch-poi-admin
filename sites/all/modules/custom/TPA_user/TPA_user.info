@@ -1,0 +1,8 @@
+
+name = TPA User
+description = Module for handling user oriented issues (login etc.)
+package = Touch Poi Admin
+core = 7.x
+
+
+

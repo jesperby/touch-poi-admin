@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Module for handling user oriented issues (login etc.)
+ */
+
+/*
+ * Implementation of hook_form_alter()
+ */
+function TPA_user_form_alter(&$form, $form_state, $form_id) {
+  switch ($form_id) {
+	  case 'user_login':
+	  	$form['#submit'][] = 'TPA_user_login_form_submit';
+	   
+	    break;
+	  }	
+}
+
+
+/**
+ * Custom submit handler
+ */
+function TPA_user_login_form_submit($form, &$form_state){
+  //Redirects to home page on login.
+  $form_state['redirect'] = 'pois';
+}
