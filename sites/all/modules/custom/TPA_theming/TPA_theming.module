@@ -36,6 +36,7 @@ function TPA_theming_custom_theme() {
 				arg(0) == 'pois' || 
 				(arg(0) == 'user' && arg(1) == 'login' ) || 
         (arg(0) == 'node' && arg(1) == 'add' && arg(2) == 'poi' ) ||
+        (arg(0) == 'node' && arg(1) == 'add' && arg(2) == 'subcategory' ) ||
         (arg(0) == 'node' && arg(1) == 'add' && arg(2) == 'category' ) ) {
     return "TPA_malmo_assets";
   }
