@@ -63,4 +63,11 @@ function TPA_malmo_assets_preprocess_html(&$vars) {
   $data = $assets_url . "/malmo.js";
   $options = array( "type" => "external", "scope" => "footer" );
   drupal_add_js( $data, $options );
+
+  // For pages containing forms, an additional class is needed in the body tag
+  if( arg(0) == 'node' && arg(1) == 'add' && arg(2) == 'poi' ||
+      arg(0) == 'node' && arg(1) == 'add' && arg(2) == 'subcategory' ||
+      arg(0) == 'node' && arg(1) == 'add' && arg(2) == 'category' ) {
+    $vars['classes_array'][] = 'malmo-form';
+  }
 }
