@@ -4,12 +4,12 @@
 (function ($) {
   Drupal.behaviors.disableFields = {
     attach: function(context, settings) {
-      console.log( "feed: ", Drupal.behaviors.TPA_poi_content_config.config['feed_base_url'] + '/?feed=poi-types-test');
+      console.log( "feed: ", Drupal.behaviors.TPA_poi_content_config.config['feed_url_poi_types']);
       $( '#edit-field-subcategory-und' ).change( function() {
         var selected_subcategory_id = $( '#edit-field-subcategory-und' ).val();
         $.ajax({
           type: 'GET',
-          url: Drupal.behaviors.TPA_poi_content_config.config['feed_base_url'] + '/?feed=poi-types-test',
+          url: Drupal.behaviors.TPA_poi_content_config.config['feed_url_poi_types'],
           dataType: 'json',
           success: function(json) {
             console.log( "json", json );
