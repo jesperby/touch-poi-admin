@@ -4,13 +4,16 @@
 (function ($) {
   Drupal.behaviors.disableFields = {
     attach: function(context, settings) {
+      console.log( "feed: ", Drupal.behaviors.TPA_poi_content_config.config['feed_base_url'] + '/?feed=poi-types-test');
       $( '#edit-field-subcategory-und' ).change( function() {
         var selected_subcategory_id = $( '#edit-field-subcategory-und' ).val();
         $.ajax({
           type: 'GET',
-          url: 'http://www.local.malmo.se/feeds/?feed=poi-types',
+          url: Drupal.behaviors.TPA_poi_content_config.config['feed_base_url'] + '/?feed=poi-types-test',
           dataType: 'json',
           success: function(json) {
+            console.log( "json", json );
+            console.log( "sel subcat id", selected_subcategory_id )
             // Get info from feed about selected subcategory
             var selected_subcategory_obj = $.grep(json, function(e){ return e.id == selected_subcategory_id; });
             var picturesEnabled = selected_subcategory_obj[0]['picturesEnabled'];
