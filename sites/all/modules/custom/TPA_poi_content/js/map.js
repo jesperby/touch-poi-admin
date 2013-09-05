@@ -92,7 +92,7 @@
             
             // Reload map with marker on chosen address
             var map_coords = coords_espg_4326.lon + "," + coords_espg_4326.lat;
-            $('#map_iframe').attr('src', 'http://' + that.getBaseUrl() + '/malmostad_map/index.html?config=eurov.js&xy=' + map_coords);
+            $('#map_iframe').attr('src', Drupal.behaviors.TPA_poi_content_config.config['malmostad_map_url'] + '&xy=' + map_coords);
             
             // Set lat/lon fields of chosen address
             $('#edit-field-latitude-und-0-value').val(coords_espg_4326.lat);
