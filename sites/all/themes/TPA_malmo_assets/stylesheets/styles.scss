@@ -39,3 +39,15 @@
 		vertical-align: middle;
 	}
 }
+
+#map_wrapper {
+	width: 100%;
+	height: 600px;
+	position:relative;
+
+	iframe {
+		position: absolute; 
+		width: 100%;
+		height: 100%;
+	}	
+}

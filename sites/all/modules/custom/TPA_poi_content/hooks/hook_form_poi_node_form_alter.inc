@@ -39,12 +39,12 @@ function TPA_poi_content_form_poi_node_form_alter(&$form, &$form_state) {
   // Add the map
   $map_url = base_path() . "malmostad_map/index.html?config=eurov.js";
   $form['malmostad_map'] = array(
-    "#markup" => "<iframe  src='$map_url$coord_parameter'
-                                onload='Drupal.behaviors.mapHandler.map_loaded()'
-                                width=860
-                                height=600 
+    "#markup" => "  <div id='map_wrapper'>
+                      <iframe  src='$map_url$coord_parameter'
+                                onload='Drupal.behaviors.mapHandler.map_loaded()' 
                                 id='map_iframe' seamless>
                        </iframe>
+                    </div>
                   ",
     "#weight" => 2,
   );
