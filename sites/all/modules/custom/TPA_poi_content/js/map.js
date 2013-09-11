@@ -139,6 +139,27 @@
      * Called after iframe containing map has been loaded
      */
     map_loaded: function () {
+      
+      // Update button text and remove special areas button
+      // NOTE! Hack using timeout to wait for all asynchronous call 
+      // of map to finish (iframe is loaded, but map is not)
+      var updated = false;
+      var i = 0; // Timer, give up after 20 * 500ms = 10s
+
+      while( !updated && i < 20 ) {
+        setTimeout(function(){
+          submit_button_loaded = $('#map_iframe').contents().find('#ev-btn-submit').length != 0 ? true : false;
+          special_areas_loaded = $('#map_iframe').contents().find('.leaflet-control-region').length != 0 ? true : false;
+
+          if( submit_button_loaded && special_areas_loaded ) {
+            $('#map_iframe').contents().find('#ev-btn-submit').html('Uppdatera');
+            $('#map_iframe').contents().find('.leaflet-control-region').hide();
+            updated = true;
+          } 
+        }, 500);
+
+        i++;
+      }
     },
     
 
