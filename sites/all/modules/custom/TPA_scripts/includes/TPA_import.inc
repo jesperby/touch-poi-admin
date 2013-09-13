@@ -117,15 +117,44 @@
  	}
 
  	/**
- * Function that checks if a file exists on given url
- */
-function TPA_import_http_file_exists($url)
-{
-    $f=@fopen($url,"r");
-    if($f)
-    {
-        fclose($f);
-        return true;
-    }
-    return false;
-}
+ 	 * Function to read from read an store lat lon in already existing poi nodes
+ 	 * Used when we replaced float field with the geolocation field from geolocation module
+ 	 */
+ 	function replace_lat_lon() {
+ 		set_time_limit(100000);
+	  ini_set('memory_limit', '-1');
+
+	  // Find all nodes of type poi
+	  $query = new EntityFieldQuery;
+	  $result_node = '';
+	  $result_node = $query
+	    ->entityCondition( 'entity_type', 'node' )
+	    ->entityCondition( 'bundle', 'poi' )
+	    ->propertyCondition( 'status', 1 )
+	    ->execute();
+
+	  // Update all poi nodes
+	  $nodes = entity_load('node', array_keys($result_node['node']));
+	  $i = 0;
+	  foreach( $nodes as $node ) {
+	  	$node->field_geolocation['und'][0]['lat'] = $node->field_latitude['und'][0]['value'];
+	  	$node->field_geolocation['und'][0]['lng'] = $node->field_longitude['und'][0]['value'];
+
+	  	node_save($node);
+	  }
+ 	}
+
+
+	/**
+	 * Function that checks if a file exists on given url
+	 */
+	function TPA_import_http_file_exists($url)
+	{
+	    $f=@fopen($url,"r");
+	    if($f)
+	    {
+	        fclose($f);
+	        return true;
+	    }
+	    return false;
+	}

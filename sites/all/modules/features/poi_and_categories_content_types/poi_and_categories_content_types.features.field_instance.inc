@@ -51,7 +51,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 1,
+      'weight' => 20,
     ),
   );
 
@@ -91,7 +91,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 2,
+      'weight' => 30,
     ),
   );
 
@@ -134,12 +134,12 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 7,
+      'weight' => 60,
     ),
   );
 
-  // Exported field_instance: 'node-poi-field_latitude'
-  $field_instances['node-poi-field_latitude'] = array(
+  // Exported field_instance: 'node-poi-field_geolocation'
+  $field_instances['node-poi-field_geolocation'] = array(
     'bundle' => 'poi',
     'default_value' => NULL,
     'deleted' => 0,
@@ -147,15 +147,10 @@ function poi_and_categories_content_types_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => 1,
-          'scale' => 10,
-          'thousand_separator' => ' ',
-        ),
-        'type' => 'number_decimal',
-        'weight' => 10,
+        'module' => 'geolocation',
+        'settings' => array(),
+        'type' => 'geolocation_text',
+        'weight' => 81,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -165,68 +160,18 @@ function poi_and_categories_content_types_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_latitude',
-    'label' => 'Latitud',
+    'field_name' => 'field_geolocation',
+    'label' => 'Koordinater',
     'required' => 0,
     'settings' => array(
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 0,
-      'module' => 'number',
+      'module' => 'geolocation',
       'settings' => array(),
-      'type' => 'number',
-      'weight' => 5,
-    ),
-  );
-
-  // Exported field_instance: 'node-poi-field_longitude'
-  $field_instances['node-poi-field_longitude'] = array(
-    'bundle' => 'poi',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => 1,
-          'scale' => 10,
-          'thousand_separator' => ' ',
-        ),
-        'type' => 'number_decimal',
-        'weight' => 20,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_longitude',
-    'label' => 'Longitud',
-    'required' => 0,
-    'settings' => array(
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 6,
+      'type' => 'geolocation_text',
+      'weight' => 40,
     ),
   );
 
@@ -276,7 +221,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 3,
+      'weight' => 50,
     ),
   );
 
@@ -315,7 +260,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 4,
+      'weight' => 10,
     ),
   );
 
@@ -786,8 +731,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
   t('Ikon för karta');
   t('Ikon för lista');
   t('Kategori');
-  t('Latitud');
-  t('Longitud');
+  t('Koordinater');
   t('Platskategori');
   t('Stängbara objekt');
   t('Stängd');

@@ -39,8 +39,10 @@
 	  	$imageUrl = file_create_url($node->field_poi_image['und'][0]['uri']);
 	  	$type = $node->field_subcategory['und'][0]['target_id'];
 	  	$active = $node->field_closed['und'][0]['value'] == 1 ? 'false' : 'true';
-	  	$longitude = $node->field_longitude['und'][0]['value'];
-	  	$langitude = $node->field_latitude['und'][0]['value'];
+
+			$longitude = $node->field_geolocation['und'][0]['lng'];
+			$langitude = $node->field_geolocation['und'][0]['lat'];
+
 	  	$description = htmlspecialchars( $node->body['und'][0]['value'], ENT_QUOTES );
 	  	$name = htmlspecialchars( $node->title, ENT_QUOTES );
 	  	$id = $node->nid;

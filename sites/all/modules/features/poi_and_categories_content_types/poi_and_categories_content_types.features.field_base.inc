@@ -243,22 +243,27 @@ function poi_and_categories_content_types_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
-  // Exported field_base: 'field_latitude'
-  $field_bases['field_latitude'] = array(
+  // Exported field_base: 'field_geolocation'
+  $field_bases['field_geolocation'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_latitude',
+    'field_name' => 'field_geolocation',
     'foreign keys' => array(),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(
-      'decimal_separator' => '.',
+    'indexes' => array(
+      'lat' => array(
+        0 => 'lat',
+      ),
+      'lng' => array(
+        0 => 'lng',
+      ),
     ),
+    'locked' => 0,
+    'module' => 'geolocation',
+    'settings' => array(),
     'translatable' => 0,
-    'type' => 'number_float',
+    'type' => 'geolocation_latlng',
   );
 
   // Exported field_base: 'field_list_closed_icon'
@@ -319,24 +324,6 @@ function poi_and_categories_content_types_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'image',
-  );
-
-  // Exported field_base: 'field_longitude'
-  $field_bases['field_longitude'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_longitude',
-    'foreign keys' => array(),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(
-      'decimal_separator' => '.',
-    ),
-    'translatable' => 0,
-    'type' => 'number_float',
   );
 
   // Exported field_base: 'field_map_closed_icon'

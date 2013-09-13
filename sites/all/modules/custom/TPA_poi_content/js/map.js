@@ -13,8 +13,15 @@
       var lat = data.north;
       var lon = data.east;
 
+      /*
       $('#edit-field-latitude-und-0-value').val(lat);
       $('#edit-field-longitude-und-0-value').val(lon);
+      */
+      
+      $('#edit-field-geolocation-und-0-lat').val(lat);
+      $('#edit-field-geolocation-und-0-lng').val(lon);
+      
+      
 
       // Find nearest adress on openstreetmap
       $.ajax({

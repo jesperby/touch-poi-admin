@@ -27,10 +27,10 @@ function TPA_poi_content_form_poi_node_form_alter(&$form, &$form_state) {
                           'group' => JS_DEFAULT ) );
   
   // Display poi marker on map if coords exist
-  if( isset( $form['field_latitude']['und'][0]['value']['#entity']->field_latitude['und'][0]['value'] ) &&
-      isset( $form['field_longitude']['und'][0]['value']['#entity']->field_longitude['und'][0]['value'] ) ) {
-    $lat = $form['field_latitude']['und'][0]['value']['#entity']->field_latitude['und'][0]['value'];
-    $lon = $form['field_longitude']['und'][0]['value']['#entity']->field_longitude['und'][0]['value'];
+  if( isset( $form['field_geolocation']['und'][0]['#entity']->field_geolocation['und'][0]['lng'] ) &&
+      isset( $form['field_geolocation']['und'][0]['#entity']->field_geolocation['und'][0]['lat'] ) ) {
+    $lat = $form['field_geolocation']['und'][0]['#entity']->field_geolocation['und'][0]['lat'];
+    $lon = $form['field_geolocation']['und'][0]['#entity']->field_geolocation['und'][0]['lng'];
     $coord_parameter = '&xy=' . $lon . "," . $lat;
   } else {
     $coord_parameter = '';
@@ -46,7 +46,7 @@ function TPA_poi_content_form_poi_node_form_alter(&$form, &$form_state) {
                        </iframe>
                     </div>
                   ",
-    "#weight" => 2,
+    "#weight" => 25,
   );
 
   // Disable / enable input fields based on chosen subcategory
