@@ -9,7 +9,7 @@
 
 		// Print the feed
 		print '<points>';
-		print TPA_poi_content_all_point_elements();
+		print TPA_poi_content_all_poi_xml_elements();
 		print '</points>';
 
 		// Prevents page templating and theming, we want raw xml data
@@ -17,11 +17,14 @@
 	}
 
 	/**
-	 * Function to create all xml point type elements of the subcategory feed
+	 * Function to create all xml poi type elements of the subcategory feed
 	 */
-	function TPA_poi_content_all_point_elements() {
-		
-		// Find all poi nodes
+	function TPA_poi_content_all_poi_xml_elements() {
+	
+		// Extract info about poi categories	
+		$poi_categories = TPA_poi_content_poi_category_info();
+	
+		// Loop all poi nodes and create xml
 		$query = new EntityFieldQuery;
 	  $result = '';
 	  $result = $query
@@ -31,14 +34,15 @@
 	    ->execute();
 	  $nodes = entity_load('node', array_keys($result['node']));
 	  
-	  
 	  // Loop through all poi nodes and create an xml point element for each
 	  $point_xml = '';
 	  foreach( $nodes as $node ) { 	
+	  	$active = TPA_poi_content_poi_active( $node, $poi_categories );	  
+	  	
 	  	$address = htmlspecialchars( $node->field_adress['und'][0]['value'], ENT_QUOTES );
 	  	$imageUrl = file_create_url($node->field_poi_image['und'][0]['uri']);
-	  	$type = $node->field_subcategory['und'][0]['target_id'];
-	  	$active = $node->field_closed['und'][0]['value'] == 1 ? 'false' : 'true';
+	  	
+			
 
 			$longitude = $node->field_geolocation['und'][0]['lng'];
 			$langitude = $node->field_geolocation['und'][0]['lat'];
@@ -46,7 +50,7 @@
 	  	$description = htmlspecialchars( $node->body['und'][0]['value'], ENT_QUOTES );
 	  	$name = htmlspecialchars( $node->title, ENT_QUOTES );
 	  	$id = $node->nid;
-	  	
+
 	  	// TODO - Calculate based on open season times
 	  	$openTime = "09:00";
 	  	$closeTime = "21:00";
@@ -62,4 +66,143 @@
 		}
 
 		return $point_xml;
+	}
+
+
+	/**
+	 * Function that returns array with poi category info
+	 */
+	function TPA_poi_content_poi_category_info() {
+		// Store closed and seasons activated for all poi category types
+		// Needed to determine whether a poi is closed or open
+		$query = new EntityFieldQuery;
+	  $result = '';
+	  $result = $query
+	    ->entityCondition( 'entity_type', 'node' )
+	    ->entityCondition( 'bundle', 'subcategory' )
+	    ->propertyCondition( 'status', 1 )
+	    ->execute();
+	  $nodes = entity_load('node', array_keys($result['node']));
+	  
+	  
+	  // Loop through all poi category nodes and store closable and season info
+	  $poi_categories = array();
+	  foreach( $nodes as $node ) { 	
+	  	$closable_activated = $node->field_activate_closable['und'][0]['value'] == 0 ? 'false' : 'true';
+	  	$seasons_activated = $node->field_activate_seasons['und'][0]['value'] == 0 ? 'false' : 'true';
+
+	  	$poi_categories[$node->nid] = array( 	'closable_activated' => $closable_activated, 
+	  																				'seasons_activated' => $seasons_activated );
+	  }
+
+	  return $poi_categories;
+	}
+
+
+	/**
+	 * Function to determine whether a poi is active
+	 */
+	function TPA_poi_content_poi_active( $node, $poi_categories ) {
+  	
+  	// Is closable and/or seasons activated?
+  	$poi_category = $node->field_subcategory['und'][0]['target_id'];
+  	$closable_activated = $poi_categories[$poi_category]['closable_activated'];
+  	$seasons_activated = $poi_categories[$poi_category]['seasons_activated'];
+
+
+
+  	// We consider the poi open, unless closed by either closed radio button or season open times
+  	$active = 'true';
+
+  	// Closed using the radio button?
+  	if( $closable_activated ) {
+  		if( $node->field_closed['und'][0]['value'] == 1 ) {
+  			$active = 'false';
+  		}
+  	}
+
+  	// Closed because outside season opening times?
+  	if( $seasons_activated ) {
+  		if( $node->nid == 1126 ) {
+  			$ts = TPA_poi_content_unix_timestamps( $node );
+  		
+  			// Is poi open for autumn?
+  			$poi_open_for_autumn = false;
+	  		if( $ts['current_date'] >= $ts['autumn_start_date'] && $ts['current_date'] <= $ts['autumn_end_date'] &&
+	  				$ts['current_time'] >= $ts['autumn_start_time'] && $ts['current_time'] <= $ts['autumn_end_time'] ) {
+	  			$poi_open_for_autumn = true;
+	  		}
+
+	  		// Is poi open for spring
+	  		$poi_open_for_spring = false;
+	  		if( $ts['current_date'] >= $ts['spring_start_date'] && $ts['current_date'] <= $ts['spring_end_date'] &&
+	  				$ts['current_time'] >= $ts['spring_start_time'] && $ts['current_time'] <=	 $ts['spring_end_time'] ) {
+	  			$poi_open_for_spring = true;
+	  		}
+
+	  		if( !$poi_open_for_autumn && !$poi_open_for_spring) {
+	  			$active = 'false';
+	  		}
+			}
+  	}
+  	
+
+  	return $active;
+	}
+
+
+	/**
+	 * Function to create array with all relevant node dates and times as unix timestamps
+	 * NOTE! For dates provided by the Drupal date module, we replace year with current year
+	 * as module didn't support month and date only.
+	 */
+	function TPA_poi_content_unix_timestamps( $node ) {
+		$timestamps = array();
+		
+		$autumn_dates = $node->field_autumn_dates['und'][0];
+		$autumn_times = $node->field_autumn_times['und'][0];
+		$spring_dates = $node->field_spring_dates['und'][0];
+		$spring_times = $node->field_spring_times['und'][0];
+
+		
+		date_default_timezone_set('UTC');
+		
+		// Autumn start date
+		$autumn_start_date = date("Y") . mb_substr( $node->field_autumn_dates['und'][0]['value'], 4 );  		
+		$timestamps['autumn_start_date'] = strtotime( $autumn_start_date );
+
+		// Autumn start time
+		$autumn_start_time = date("Y-m-d") . mb_substr( $node->field_autumn_times['und'][0]['value'], 10 ); 
+		$timestamps['autumn_start_time'] = strtotime( $autumn_start_time );
+
+		// Autumn end date
+		$autumn_end_date = date("Y") . mb_substr( $node->field_autumn_dates['und'][0]['value2'], 4 );  		
+		$timestamps['autumn_end_date'] = strtotime( $autumn_end_date );
+
+		// Autumn end time
+		$autumn_end_time = date("Y-m-d") . mb_substr( $node->field_autumn_times['und'][0]['value2'], 10 ); 
+		$timestamps['autumn_end_time'] = strtotime( $autumn_end_time );
+
+		// Spring start date
+		$spring_start_date = date("Y") . mb_substr( $node->field_spring_dates['und'][0]['value'], 4 );  		
+		$timestamps['spring_start_date'] = strtotime( $spring_start_date );
+
+		// Spring start time
+		$spring_start_time = date("Y-m-d") . mb_substr( $node->field_spring_times['und'][0]['value'], 10 ); 
+		$timestamps['spring_start_time'] = strtotime( $spring_start_time  );
+
+		// Spring end date
+		$spring_end_date = date("Y") . mb_substr( $node->field_spring_dates['und'][0]['value2'], 4 );  		
+		$timestamps['spring_end_date'] = strtotime( $spring_end_date );
+
+		// Spring end time
+		$spring_end_time = date("Y-m-d") . mb_substr( $node->field_spring_times['und'][0]['value2'], 10 ); 
+		$timestamps['spring_end_time'] = strtotime( $spring_end_time );
+		
+
+		// Current date / time
+		$timestamps['current_date'] = strtotime(date('Y-m-d'));	
+		$timestamps['current_time'] = strtotime(date('H:i'));	
+		
+		return $timestamps;
 	}

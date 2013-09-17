@@ -51,7 +51,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 20,
+      'weight' => 2,
     ),
   );
 
@@ -91,7 +91,113 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 30,
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'node-poi-field_autumn_dates'
+  $field_instances['node-poi-field_autumn_dates'] = array(
+    'bundle' => 'poi',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 86,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_autumn_dates',
+    'label' => 'Höst - datum',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 1,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_select',
+      'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'node-poi-field_autumn_times'
+  $field_instances['node-poi-field_autumn_times'] = array(
+    'bundle' => 'poi',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 88,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_autumn_times',
+    'label' => 'Höst - tider',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 1,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_select',
+      'weight' => 10,
     ),
   );
 
@@ -134,7 +240,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 60,
+      'weight' => 6,
     ),
   );
 
@@ -171,7 +277,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'geolocation',
       'settings' => array(),
       'type' => 'geolocation_text',
-      'weight' => 40,
+      'weight' => 4,
     ),
   );
 
@@ -221,7 +327,113 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 50,
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'node-poi-field_spring_dates'
+  $field_instances['node-poi-field_spring_dates'] = array(
+    'bundle' => 'poi',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 85,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_spring_dates',
+    'label' => 'Vår - datum',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 1,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_select',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'node-poi-field_spring_times'
+  $field_instances['node-poi-field_spring_times'] = array(
+    'bundle' => 'poi',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 87,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_spring_times',
+    'label' => 'Vår - tider',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 1,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_select',
+      'weight' => 8,
     ),
   );
 
@@ -260,7 +472,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 10,
+      'weight' => 1,
     ),
   );
 
@@ -624,7 +836,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
   $field_instances['node-subcategory-field_map_closed_icon'] = array(
     'bundle' => 'subcategory',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Ikon bör ha grå bakgrund med färgkod #cccccc',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -728,6 +940,9 @@ function poi_and_categories_content_types_field_default_field_instances() {
   t('Aktivera säsongstider');
   t('Beskrivning');
   t('Bild för plats');
+  t('Höst - datum');
+  t('Höst - tider');
+  t('Ikon bör ha grå bakgrund med färgkod #cccccc');
   t('Ikon för karta');
   t('Ikon för lista');
   t('Kategori');
@@ -737,6 +952,8 @@ function poi_and_categories_content_types_field_default_field_instances() {
   t('Stängd');
   t('Stängd ikon för karta');
   t('Stängd ikon för lista');
+  t('Vår - datum');
+  t('Vår - tider');
 
   return $field_instances;
 }
