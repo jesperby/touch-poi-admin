@@ -36,14 +36,14 @@
 	  
 	  // Loop through all poi nodes and create an xml point element for each
 	  $point_xml = '';
+	  $i = 0;
 	  foreach( $nodes as $node ) { 	
 	  	$active = TPA_poi_content_poi_active( $node, $poi_categories );	  
 	  	
+	  	//$active = 'false';
 	  	$address = htmlspecialchars( $node->field_adress['und'][0]['value'], ENT_QUOTES );
 	  	$imageUrl = file_create_url($node->field_poi_image['und'][0]['uri']);
 	  	
-			
-
 			$longitude = $node->field_geolocation['und'][0]['lng'];
 			$langitude = $node->field_geolocation['und'][0]['lat'];
 
@@ -109,8 +109,6 @@
   	$closable_activated = $poi_categories[$poi_category]['closable_activated'];
   	$seasons_activated = $poi_categories[$poi_category]['seasons_activated'];
 
-
-
   	// We consider the poi open, unless closed by either closed radio button or season open times
   	$active = 'true';
 
@@ -123,29 +121,31 @@
 
   	// Closed because outside season opening times?
   	if( $seasons_activated ) {
-  		if( $node->nid == 1126 ) {
-  			$ts = TPA_poi_content_unix_timestamps( $node );
-  		
-  			// Is poi open for autumn?
-  			$poi_open_for_autumn = false;
+			$ts = TPA_poi_content_unix_timestamps( $node );
+		
+			// Is poi open for autumn?
+			$poi_open_for_autumn = false;
+			if( $ts['autumn_dates_set'] && $ts['autumn_times_set'] ) {
 	  		if( $ts['current_date'] >= $ts['autumn_start_date'] && $ts['current_date'] <= $ts['autumn_end_date'] &&
 	  				$ts['current_time'] >= $ts['autumn_start_time'] && $ts['current_time'] <= $ts['autumn_end_time'] ) {
 	  			$poi_open_for_autumn = true;
 	  		}
+  		}
 
-	  		// Is poi open for spring
-	  		$poi_open_for_spring = false;
-	  		if( $ts['current_date'] >= $ts['spring_start_date'] && $ts['current_date'] <= $ts['spring_end_date'] &&
-	  				$ts['current_time'] >= $ts['spring_start_time'] && $ts['current_time'] <=	 $ts['spring_end_time'] ) {
-	  			$poi_open_for_spring = true;
-	  		}
+  		// Is poi open for spring
+  		$poi_open_for_spring = false;
+  		if( $ts['spring_dates_set'] && $ts['spring_times_set'] ) {
+  			if( $ts['current_date'] >= $ts['spring_start_date'] && $ts['current_date'] <= $ts['spring_end_date'] &&
+  					$ts['current_time'] >= $ts['spring_start_time'] && $ts['current_time'] <=	 $ts['spring_end_time'] ) {
+  				$poi_open_for_spring = true;
+  			}	
+  		}
 
-	  		if( !$poi_open_for_autumn && !$poi_open_for_spring) {
-	  			$active = 'false';
-	  		}
-			}
+  		if( !$poi_open_for_autumn && !$poi_open_for_spring) {
+  			$active = 'false';
+  		}
+
   	}
-  	
 
   	return $active;
 	}
@@ -158,51 +158,76 @@
 	 */
 	function TPA_poi_content_unix_timestamps( $node ) {
 		$timestamps = array();
-		
-		$autumn_dates = $node->field_autumn_dates['und'][0];
-		$autumn_times = $node->field_autumn_times['und'][0];
-		$spring_dates = $node->field_spring_dates['und'][0];
-		$spring_times = $node->field_spring_times['und'][0];
-
-		
 		date_default_timezone_set('UTC');
+
+		// Autumn date
+		if( isset( $node->field_autumn_dates['und'][0] ) ) {
+			$timestamps['autumn_dates_set'] = true;
+			$autumn_dates = $node->field_autumn_dates['und'][0];
+			
+			// Autumn start date
+			$autumn_start_date = date("Y") . mb_substr( $node->field_autumn_dates['und'][0]['value'], 4 );  		
+			$timestamps['autumn_start_date'] = strtotime( $autumn_start_date );
+
+			// Autumn end date
+			$autumn_end_date = date("Y") . mb_substr( $node->field_autumn_dates['und'][0]['value2'], 4 );  		
+			$timestamps['autumn_end_date'] = strtotime( $autumn_end_date );
+		} else {
+			$timestamps['autumn_dates_set'] = false;
+		}
 		
-		// Autumn start date
-		$autumn_start_date = date("Y") . mb_substr( $node->field_autumn_dates['und'][0]['value'], 4 );  		
-		$timestamps['autumn_start_date'] = strtotime( $autumn_start_date );
+		// Spring date
+		if( isset( $node->field_spring_dates['und'][0] ) ) {
+			$timestamps['spring_dates_set'] = true;
+			$spring_dates = $node->field_spring_dates['und'][0];
+			
+			// Spring start date
+			$spring_start_date = date("Y") . mb_substr( $node->field_spring_dates['und'][0]['value'], 4 );  		
+			$timestamps['spring_start_date'] = strtotime( $spring_start_date );
 
-		// Autumn start time
-		$autumn_start_time = date("Y-m-d") . mb_substr( $node->field_autumn_times['und'][0]['value'], 10 ); 
-		$timestamps['autumn_start_time'] = strtotime( $autumn_start_time );
+			// Spring end date
+			$spring_end_date = date("Y") . mb_substr( $node->field_spring_dates['und'][0]['value2'], 4 );  		
+			$timestamps['spring_end_date'] = strtotime( $spring_end_date );
+		} else {
+			$timestamps['spring_dates_set'] = false;
+		}
 
-		// Autumn end date
-		$autumn_end_date = date("Y") . mb_substr( $node->field_autumn_dates['und'][0]['value2'], 4 );  		
-		$timestamps['autumn_end_date'] = strtotime( $autumn_end_date );
+		// Autumn time
+		if( isset( $node->field_autumn_times['und'][0] ) ) {
+			$timestamps['autumn_times_set'] = true;
+			$autumn_times = $node->field_autumn_times['und'][0];
+			
+			// Autumn start time
+			$autumn_start_time = date("Y-m-d") . mb_substr( $node->field_autumn_times['und'][0]['value'], 10 ); 
+			$timestamps['autumn_start_time'] = strtotime( $autumn_start_time );
 
-		// Autumn end time
-		$autumn_end_time = date("Y-m-d") . mb_substr( $node->field_autumn_times['und'][0]['value2'], 10 ); 
-		$timestamps['autumn_end_time'] = strtotime( $autumn_end_time );
 
-		// Spring start date
-		$spring_start_date = date("Y") . mb_substr( $node->field_spring_dates['und'][0]['value'], 4 );  		
-		$timestamps['spring_start_date'] = strtotime( $spring_start_date );
+			// Autumn end time
+			$autumn_end_time = date("Y-m-d") . mb_substr( $node->field_autumn_times['und'][0]['value2'], 10 ); 
+			$timestamps['autumn_end_time'] = strtotime( $autumn_end_time );
+		} else {
+			$timestamps['autumn_times_set'] = false;
+		}
 
-		// Spring start time
-		$spring_start_time = date("Y-m-d") . mb_substr( $node->field_spring_times['und'][0]['value'], 10 ); 
-		$timestamps['spring_start_time'] = strtotime( $spring_start_time  );
+		// Spring time
+		if( isset( $node->field_spring_times['und'][0] ) ) {
+			$timestamps['spring_times_set'] = true;
+			$spring_times = $node->field_spring_times['und'][0];
+			
+			// Spring start time
+			$spring_start_time = date("Y-m-d") . mb_substr( $node->field_spring_times['und'][0]['value'], 10 ); 
+			$timestamps['spring_start_time'] = strtotime( $spring_start_time  );
 
-		// Spring end date
-		$spring_end_date = date("Y") . mb_substr( $node->field_spring_dates['und'][0]['value2'], 4 );  		
-		$timestamps['spring_end_date'] = strtotime( $spring_end_date );
-
-		// Spring end time
-		$spring_end_time = date("Y-m-d") . mb_substr( $node->field_spring_times['und'][0]['value2'], 10 ); 
-		$timestamps['spring_end_time'] = strtotime( $spring_end_time );
+			// Spring end time
+			$spring_end_time = date("Y-m-d") . mb_substr( $node->field_spring_times['und'][0]['value2'], 10 ); 
+			$timestamps['spring_end_time'] = strtotime( $spring_end_time );
+		} else {
+			$timestamps['spring_times_set'] = false;
+		}
 		
-
 		// Current date / time
 		$timestamps['current_date'] = strtotime(date('Y-m-d'));	
 		$timestamps['current_time'] = strtotime(date('H:i'));	
-		
+
 		return $timestamps;
 	}
