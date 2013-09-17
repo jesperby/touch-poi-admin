@@ -44,12 +44,14 @@
 			$errorReportEnabled = $node->field_activate_error_reporting['und'][0]['value'] == 1 ? 'true' : 'false';
 			$picturesEnabled = $node->field_activate_images['und'][0]['value'] == 1 ? 'true' : 'false';
 			$closableEnabled = $node->field_activate_closable['und'][0]['value'] == 1 ? 'true' : 'false';
+			$seasonsEnabled = $node->field_activate_seasons['und'][0]['value'] == 1 ? 'true' : 'false';
 			$name = htmlspecialchars( $node->title, ENT_QUOTES );
 			
 			// The xml
 			$point_type_xml .= '
-				  <pointType errorReportEnabled="' . $errorReportEnabled . '" picturesEnabled="' . $picturesEnabled . '" 
-				  					 closableEnabled="' . $closableEnabled . '" name="' . $name . '" id="' . $node->nid . '">
+				  <pointType 	errorReportEnabled="' . $errorReportEnabled . '" picturesEnabled="' . $picturesEnabled . '" 
+				  						seasonsEnabled="' . $seasonsEnabled . '" closableEnabled="' . $closableEnabled . '" 
+				  						name="' . $name . '" id="' . $node->nid . '">
 				    <closedImage imageUrl="' . $closedImage . '"/>
 				    <closedMapImage imageUrl="' . $closedMapImage . '"/>
 				    <image imageUrl="' . $image . '"/>
