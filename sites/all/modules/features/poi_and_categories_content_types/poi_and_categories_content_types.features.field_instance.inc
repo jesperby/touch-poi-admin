@@ -123,7 +123,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_autumn_dates',
-    'label' => 'Höst - datum',
+    'label' => 'Höst - Datum',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -176,7 +176,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_autumn_times',
-    'label' => 'Höst - tider',
+    'label' => 'Höst - Tider',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -359,7 +359,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_spring_dates',
-    'label' => 'Vår - datum',
+    'label' => 'Vår - Datum',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -412,7 +412,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_spring_times',
-    'label' => 'Vår - tider',
+    'label' => 'Vår - Tider',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -940,8 +940,8 @@ function poi_and_categories_content_types_field_default_field_instances() {
   t('Aktivera säsongstider');
   t('Beskrivning');
   t('Bild för plats');
-  t('Höst - datum');
-  t('Höst - tider');
+  t('Höst - Datum');
+  t('Höst - Tider');
   t('Ikon bör ha grå bakgrund med färgkod #cccccc');
   t('Ikon för karta');
   t('Ikon för lista');
@@ -952,8 +952,8 @@ function poi_and_categories_content_types_field_default_field_instances() {
   t('Stängd');
   t('Stängd ikon för karta');
   t('Stängd ikon för lista');
-  t('Vår - datum');
-  t('Vår - tider');
+  t('Vår - Datum');
+  t('Vår - Tider');
 
   return $field_instances;
 }
