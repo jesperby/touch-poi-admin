@@ -51,7 +51,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 2,
+      'weight' => 20,
     ),
   );
 
@@ -91,7 +91,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => 30,
     ),
   );
 
@@ -144,7 +144,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_select',
-      'weight' => 9,
+      'weight' => 90,
     ),
   );
 
@@ -197,7 +197,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_select',
-      'weight' => 10,
+      'weight' => 95,
     ),
   );
 
@@ -240,7 +240,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 6,
+      'weight' => 60,
     ),
   );
 
@@ -277,7 +277,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'geolocation',
       'settings' => array(),
       'type' => 'geolocation_text',
-      'weight' => 4,
+      'weight' => 40,
     ),
   );
 
@@ -327,7 +327,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 5,
+      'weight' => 50,
     ),
   );
 
@@ -380,7 +380,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_select',
-      'weight' => 7,
+      'weight' => 70,
     ),
   );
 
@@ -433,7 +433,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_select',
-      'weight' => 8,
+      'weight' => 80,
     ),
   );
 
@@ -472,7 +472,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 1,
+      'weight' => 10,
     ),
   );
 
