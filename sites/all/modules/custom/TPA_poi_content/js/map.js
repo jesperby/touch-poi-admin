@@ -102,8 +102,8 @@
             $('#map_iframe').attr('src', Drupal.behaviors.TPA_poi_content_config.config['malmostad_map_url'] + '&xy=' + map_coords);
             
             // Set lat/lon fields of chosen address
-            $('#edit-field-latitude-und-0-value').val(coords_espg_4326.lat);
-            $('#edit-field-longitude-und-0-value').val(coords_espg_4326.lon);
+            $('#edit-field-geolocation-und-0-lat').val(coords_espg_4326.lat);
+            $('#edit-field-geolocation-und-0-lng').val(coords_espg_4326.lon);
           },
           open: function() {
             //return $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
