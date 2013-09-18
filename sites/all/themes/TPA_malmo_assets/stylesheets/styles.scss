@@ -51,3 +51,40 @@
 		height: 100%;
 	}	
 }
+
+#edit-field-spring-dates-und-0-value-year,  #edit-field-spring-dates-und-0-value2-year, 
+#edit-field-spring-times-und-0-value-year, #edit-field-spring-times-und-0-value2-year,
+#edit-field-autumn-dates-und-0-value-year, #edit-field-autumn-dates-und-0-value2-year,
+#edit-field-autumn-times-und-0-value-year, #edit-field-autumn-times-und-0-value2-year,
+.form-item.date-spacer
+{
+	display:none;
+}
+
+#edit-field-spring-times-und-0-value-hour, #edit-field-spring-times-und-0-value-minute,
+#edit-field-spring-times-und-0-value2-hour, #edit-field-spring-times-und-0-value2-minute,
+#edit-field-autumn-times-und-0-value-hour, #edit-field-autumn-times-und-0-value-minute,
+#edit-field-autumn-times-und-0-value2-hour, #edit-field-autumn-times-und-0-value2-minute {
+	width: 6em;
+}
+
+.form-type-date-select label {
+	float: right;
+  font-size: 13px;
+  margin-top: -30px;
+}
+
+.form-type-date-select .form-type-select[class$="hour"] {
+    margin-left: 0em;
+}
+
+.date-no-float {
+    clear: both;
+    float: none;
+    margin-bottom: -25px;
+    width: 98%;
+}
+
+.field-widget-date-select {
+	margin-bottom: 40px;
+}
