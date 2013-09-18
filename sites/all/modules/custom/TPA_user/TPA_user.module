@@ -12,7 +12,9 @@
 function TPA_user_init() {
 	global $user;
   if ( !( arg(0) == 'user' && arg(1) == 'login' ) && $user->uid == 0  ) {
-    drupal_goto('user/login');
+    if( !drupal_is_cli() ) {
+    	drupal_goto('user/login');
+    }
   }
 }
 
