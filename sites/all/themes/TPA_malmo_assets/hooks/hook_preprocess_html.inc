@@ -69,9 +69,9 @@ function TPA_malmo_assets_preprocess_html(&$vars) {
       arg(0) == 'node' && arg(1) == 'add' && arg(2) == 'poi' ||
       arg(0) == 'node' && arg(1) == 'add' && arg(2) == 'subcategory' ||
       arg(0) == 'node' && arg(1) == 'add' && arg(2) == 'category' ||
-      arg(0) == 'node' && arg(2) == 'edit' && $_GET['destination'] == 'pois' ||
-      arg(0) == 'node' && arg(2) == 'edit' && $_GET['destination'] == 'subcategories' ||
-      arg(0) == 'node' && arg(2) == 'edit' && $_GET['destination'] == 'categories' ) {
+      arg(0) == 'node' && arg(2) == 'edit' && mb_substr( $_GET['destination'], 0, 4) == 'pois' ||
+      arg(0) == 'node' && arg(2) == 'edit' && mb_substr( $_GET['destination'], 0, 13) == 'subcategories' ||
+      arg(0) == 'node' && arg(2) == 'edit' && mb_substr( $_GET['destination'], 0, 10) == 'categories' ) {
     $vars['classes_array'][] = 'malmo-form';
   }
 }
