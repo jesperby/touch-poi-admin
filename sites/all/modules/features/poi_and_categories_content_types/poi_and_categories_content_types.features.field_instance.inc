@@ -285,7 +285,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
   $field_instances['node-poi-field_poi_image'] = array(
     'bundle' => 'poi',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Storlek: 320x180, tänk på att \'spara för webben\'.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -306,14 +306,14 @@ function poi_and_categories_content_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_poi_image',
-    'label' => 'Bild för plats',
+    'label' => 'Bild',
     'required' => 0,
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
-      'max_filesize' => '5 MB',
+      'max_filesize' => '500 KB',
       'max_resolution' => '',
       'min_resolution' => '',
       'title_field' => 0,
@@ -736,7 +736,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
   $field_instances['node-subcategory-field_list_closed_icon'] = array(
     'bundle' => 'subcategory',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Färgkoder för grå bakgrund: R 195 - G 200 - B 200',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -836,7 +836,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
   $field_instances['node-subcategory-field_map_closed_icon'] = array(
     'bundle' => 'subcategory',
     'deleted' => 0,
-    'description' => 'Ikon bör ha grå bakgrund med färgkod #cccccc',
+    'description' => 'Färgkoder för grå bakgrund: R 195 - G 200 - B 200',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -939,15 +939,16 @@ function poi_and_categories_content_types_field_default_field_instances() {
   t('Aktivera felanmälan');
   t('Aktivera säsongstider');
   t('Beskrivning');
-  t('Bild för plats');
+  t('Bild');
+  t('Färgkoder för grå bakgrund: R 195 - G 200 - B 200');
   t('Höst - Datum');
   t('Höst - Tider');
-  t('Ikon bör ha grå bakgrund med färgkod #cccccc');
   t('Ikon för karta');
   t('Ikon för lista');
   t('Kategori');
   t('Koordinater');
   t('Platskategori');
+  t('Storlek: 320x180, tänk på att \'spara för webben\'.');
   t('Stängbara objekt');
   t('Stängd');
   t('Stängd ikon för karta');
