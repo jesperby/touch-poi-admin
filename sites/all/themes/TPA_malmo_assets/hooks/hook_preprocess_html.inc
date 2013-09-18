@@ -65,9 +65,13 @@ function TPA_malmo_assets_preprocess_html(&$vars) {
   drupal_add_js( $data, $options );
 
   // For pages containing forms, an additional class is needed in the body tag
-  if( arg(0) == 'node' && arg(1) == 'add' && arg(2) == 'poi' ||
+  if( arg(0) == 'user' && arg(1) == 'login' ||
+      arg(0) == 'node' && arg(1) == 'add' && arg(2) == 'poi' ||
       arg(0) == 'node' && arg(1) == 'add' && arg(2) == 'subcategory' ||
-      arg(0) == 'node' && arg(1) == 'add' && arg(2) == 'category' ) {
+      arg(0) == 'node' && arg(1) == 'add' && arg(2) == 'category' ||
+      arg(0) == 'node' && arg(2) == 'edit' && $_GET['destination'] == 'pois' ||
+      arg(0) == 'node' && arg(2) == 'edit' && $_GET['destination'] == 'subcategories' ||
+      arg(0) == 'node' && arg(2) == 'edit' && $_GET['destination'] == 'categories' ) {
     $vars['classes_array'][] = 'malmo-form';
   }
 }
