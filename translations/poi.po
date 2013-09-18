@@ -48,9 +48,18 @@ msgstr "Lattitud"
 msgid "Longitude"
 msgstr "Longitud"
 
-msgid "Closed"
-msgstr "Stängd"
+msgid "Month"
+msgstr "Månad"
 
+msgid "Hour"
+msgstr "Timme"
 
+msgid "Minute"
+msgstr "Minut"
 
+msgid "to:"
+msgstr "till:"
+
+msgid "to"
+msgstr "till"
 
