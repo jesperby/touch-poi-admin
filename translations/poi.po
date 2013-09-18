@@ -43,7 +43,7 @@ msgid "Subcategory"
 msgstr "Platskategori"
 
 msgid "Latitude"
-msgstr "Lattitud"
+msgstr "Latitud"
 
 msgid "Longitude"
 msgstr "Longitud"
