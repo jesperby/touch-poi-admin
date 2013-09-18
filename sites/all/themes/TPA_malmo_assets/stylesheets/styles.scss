@@ -108,7 +108,16 @@
 		width: 70%;
 	}
 
+	#edit-field-spring-dates,  #edit-field-spring-times {
+		margin-top: 60px;
+	}
+	
 	#edit-actions {
 		clear:both;
+	}
+
+	/* Don't show coordinate header */
+	#edit-field-geolocation-und-0 legend {
+		display:none;
 	}
 } /* End #poi-node-form */
