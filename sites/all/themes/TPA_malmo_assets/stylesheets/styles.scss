@@ -52,6 +52,10 @@
 	}	
 }
 
+
+/********************* Seasonal times ****************/
+
+/* Don't display years */
 #edit-field-spring-dates-und-0-value-year,  #edit-field-spring-dates-und-0-value2-year, 
 #edit-field-spring-times-und-0-value-year, #edit-field-spring-times-und-0-value2-year,
 #edit-field-autumn-dates-und-0-value-year, #edit-field-autumn-dates-und-0-value2-year,
@@ -61,6 +65,7 @@
 	display:none;
 }
 
+/* Set hour-minute widths */
 #edit-field-spring-times-und-0-value-hour, #edit-field-spring-times-und-0-value-minute,
 #edit-field-spring-times-und-0-value2-hour, #edit-field-spring-times-und-0-value2-minute,
 #edit-field-autumn-times-und-0-value-hour, #edit-field-autumn-times-und-0-value-minute,
@@ -68,10 +73,12 @@
 	width: 6em;
 }
 
+/* Styling of text 'till' */
 .form-type-date-select label {
-	float: right;
   font-size: 13px;
-  margin-top: -30px;
+  margin-bottom: -6px;
+  margin-left: 13px;
+  margin-top: 5px;
 }
 
 .form-type-date-select .form-type-select[class$="hour"] {
