@@ -11,11 +11,14 @@
  */
 function TPA_user_init() {
 	global $user;
-  if ( !( arg(0) == 'user' && arg(1) == 'login' ) && $user->uid == 0  ) {
-    if( !drupal_is_cli() ) {
-    	drupal_goto('user/login');
-    }
-  }
+  if( $user->uid == 0 ) {
+	  if ( !( arg(0) == 'user' && arg(1) == 'login' ) &&
+	  		 !( arg(0) == 'feeds' ) ) {
+	    if( !drupal_is_cli() ) {
+	    	drupal_goto('user/login');
+	    }
+	  }
+	}
 }
 
 
