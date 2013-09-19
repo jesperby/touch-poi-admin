@@ -162,13 +162,11 @@
 
 	/**
 	 * Function to create array with all relevant node dates and times as unix timestamps
-	 * NOTE! For dates provided by the Drupal date module, we replace year with current year
-	 * as module didn't support month and date only.
 	 */
 	function TPA_poi_content_unix_timestamps( $node ) {
 		
 		$timestamps = array();
-		date_default_timezone_set('UTC');
+		date_default_timezone_set('Europe/Stockholm');
 		global $tmp_year;
 
 		if( isset( $node->field_spring_start_month['und'][0]['value'] ) &&
