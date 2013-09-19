@@ -48,13 +48,11 @@
 	  	$imageUrl = '';
 
 	  	$active = TPA_poi_content_poi_active( $node, $poi_categories );	  
-	  	
+	  	$type = $node->field_subcategory['und'][0]['target_id'];
 	  	$address = htmlspecialchars( $node->field_adress['und'][0]['value'], ENT_QUOTES );
 	  	$imageUrl = file_create_url($node->field_poi_image['und'][0]['uri']);
-	  	
 			$longitude = $node->field_geolocation['und'][0]['lng'];
 			$langitude = $node->field_geolocation['und'][0]['lat'];
-
 	  	$description = htmlspecialchars( $node->body['und'][0]['value'], ENT_QUOTES );
 	  	$name = htmlspecialchars( $node->title, ENT_QUOTES );
 	  	$id = $node->nid;
@@ -98,8 +96,8 @@
 	  // Loop through all poi category nodes and store closable and season info
 	  $poi_categories = array();
 	  foreach( $nodes as $node ) { 	
-	  	$closable_activated = $node->field_activate_closable['und'][0]['value'] == 0 ? 'false' : 'true';
-	  	$seasons_activated = $node->field_activate_seasons['und'][0]['value'] == 0 ? 'false' : 'true';
+	  	$closable_activated = $node->field_activate_closable['und'][0]['value'] == 0 ? false : true;
+	  	$seasons_activated = $node->field_activate_seasons['und'][0]['value'] == 0 ? false : true;
 
 	  	$poi_categories[$node->nid] = array( 	'closable_activated' => $closable_activated, 
 	  																				'seasons_activated' => $seasons_activated );
@@ -128,6 +126,8 @@
   		}
   	}
 
+
+
   	// Closed because outside season opening times?
   	if( $seasons_activated ) {
 			$ts = TPA_poi_content_unix_timestamps( $node );
@@ -150,10 +150,11 @@
   			}	
   		}
 
-  		if( !$poi_open_for_autumn && !$poi_open_for_spring) {
+  		if( $ts['spring_dates_set'] && $ts['spring_times_set'] &&
+  				$ts['autumn_dates_set'] && $ts['autumn_times_set'] &&
+  				!$poi_open_for_autumn && !$poi_open_for_spring ) {
   			$active = 'false';
   		}
-
   	}
 
   	return $active;
