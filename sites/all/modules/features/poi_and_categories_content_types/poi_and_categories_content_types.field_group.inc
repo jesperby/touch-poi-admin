@@ -23,10 +23,10 @@ function poi_and_categories_content_types_field_group_info() {
     'label' => 'Höst - Datum',
     'weight' => '9',
     'children' => array(
-      0 => 'field_field_autumn_start_month',
-      1 => 'field_field_autumn_start_day',
-      2 => 'field_field_autumn_end_month',
-      3 => 'field_field_autumn_end_day',
+      0 => 'field_autumn_end_month',
+      1 => 'field_autumn_start_month',
+      2 => 'field_autumn_start_day',
+      3 => 'field_autumn_end_day',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -56,10 +56,10 @@ function poi_and_categories_content_types_field_group_info() {
     'label' => 'Höst - Tider',
     'weight' => '10',
     'children' => array(
-      0 => 'field_field_autumn_start_hour',
-      1 => 'field_field_autumn_end_hour',
-      2 => 'field_field_autumn_start_minute',
-      3 => 'field_field_autumn_end_minute',
+      0 => 'field_autumn_start_hour',
+      1 => 'field_autumn_end_hour',
+      2 => 'field_autumn_start_minute',
+      3 => 'field_autumn_end_minute',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -89,10 +89,10 @@ function poi_and_categories_content_types_field_group_info() {
     'label' => 'Vår - Datum',
     'weight' => '7',
     'children' => array(
-      0 => 'field_field_spring_start_month',
-      1 => 'field_field_spring_start_day',
-      2 => 'field_field_spring_end_month',
-      3 => 'field_field_spring_end_day',
+      0 => 'field_spring_start_month',
+      1 => 'field_spring_end_month',
+      2 => 'field_spring_end_day',
+      3 => 'field_spring_start_day',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -124,10 +124,10 @@ function poi_and_categories_content_types_field_group_info() {
     'label' => 'Vår - Tider',
     'weight' => '8',
     'children' => array(
-      0 => 'field_field_spring_start_hour',
-      1 => 'field_field_spring_end_hour',
-      2 => 'field_field_spring_start_minute',
-      3 => 'field_field_spring_end_minute',
+      0 => 'field_spring_start_hour',
+      1 => 'field_spring_end_hour',
+      2 => 'field_spring_start_minute',
+      3 => 'field_spring_end_minute',
     ),
     'format_type' => 'div',
     'format_settings' => array(

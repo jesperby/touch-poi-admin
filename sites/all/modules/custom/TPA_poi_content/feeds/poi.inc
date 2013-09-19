@@ -1,5 +1,11 @@
 <?php
 
+	global $tmp_year;  // Arbitrary year used to create unix timestamps for dates/times specified without year
+	$tmp_year = '2013';
+
+	error_reporting(E_ALL);
+	ini_set('display_errors', '1');
+
 	/**
 	 * Function to create the poi xml feed
 	 */
@@ -38,6 +44,10 @@
 	  $point_xml = '';
 	  $i = 0;
 	  foreach( $nodes as $node ) { 	
+	  	$ts = TPA_poi_content_unix_timestamps( $node );
+
+	  	/*
+	  	
 	  	$active = TPA_poi_content_poi_active( $node, $poi_categories );	  
 	  	
 	  	//$active = 'false';
@@ -63,6 +73,7 @@
 					<image imageUrl="' . $imageUrl . '"/>
 				</point>
 			';
+			*/
 		}
 
 		return $point_xml;
@@ -157,9 +168,52 @@
 	 * as module didn't support month and date only.
 	 */
 	function TPA_poi_content_unix_timestamps( $node ) {
+		/*
 		$timestamps = array();
 		date_default_timezone_set('UTC');
+		global $tmp_year;
 
+		if( $node->nid == 1128 ) {
+  		//print_r( $node->field_field_spring_start_month );
+			//print_r( $node->field_field_spring_start_day  );
+			//print_r( $node->field_field_spring_start_hour );
+			//print_r( $node->field_field_spring_start_minute  );
+			
+
+			// Spring date
+			if( isset( $node->field_field_spring_start_month ) &&
+					isset( $node->field_field_spring_start_day ) &&
+					isset( $node->field_field_spring_end_month ) && 
+					isset( $node->field_field_spring_end_day ) ) {
+				print "HERE";				
+
+				$timestamps['spring_dates_set'] = true;
+
+				$start_month = $node->field_field_spring_start_month['und'][0]['value'];
+				$start_day = $node->field_field_spring_start_day['und'][0]['value'];
+				$end_month = $node->field_field_spring_end_month['und'][0]['value'];
+				$end_day = $node->field_field_spring_end_day['und'][0]['value'];
+
+				print "start month" . $start_month . "\r\n";
+				print "start day" . $start_day . "\r\n";
+				print "end month" . $end_month . "\r\n";
+				print "end day" . $end_day . "\r\n";
+
+				$spring_start_date = date("Y") . mb_substr( $node->field_spring_dates['und'][0]['value'], 4 );  		
+				$timestamps['spring_start_date'] = strtotime( $spring_start_date );
+
+				
+			} else {
+				//$timestamps['spring_dates_set'] = false;
+			}
+			die;
+		} 
+		*/
+		/*
+		
+		*/
+
+		/*
 		// Autumn date
 		if( isset( $node->field_autumn_dates['und'][0] ) ) {
 			$timestamps['autumn_dates_set'] = true;
@@ -224,7 +278,8 @@
 		} else {
 			$timestamps['spring_times_set'] = false;
 		}
-		
+		*/
+
 		// Current date / time
 		$timestamps['current_date'] = strtotime(date('Y-m-d'));	
 		$timestamps['current_time'] = strtotime(date('H:i'));	
