@@ -466,7 +466,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 14,
+      'weight' => 19,
     ),
   );
 
@@ -576,7 +576,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 15,
+      'weight' => 18,
     ),
   );
 
@@ -613,7 +613,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 13,
+      'weight' => 17,
     ),
   );
 
