@@ -57,9 +57,9 @@ function poi_and_categories_content_types_field_group_info() {
     'weight' => '10',
     'children' => array(
       0 => 'field_field_autumn_start_hour',
-      1 => 'field_field_autumn_start_minute',
-      2 => 'field_field_autumn_end_minute',
-      3 => 'field_field_autumn_end_hour',
+      1 => 'field_field_autumn_end_hour',
+      2 => 'field_field_autumn_start_minute',
+      3 => 'field_field_autumn_end_minute',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -125,9 +125,9 @@ function poi_and_categories_content_types_field_group_info() {
     'weight' => '8',
     'children' => array(
       0 => 'field_field_spring_start_hour',
-      1 => 'field_field_spring_start_minute',
-      2 => 'field_field_spring_end_minute',
-      3 => 'field_field_spring_end_hour',
+      1 => 'field_field_spring_end_hour',
+      2 => 'field_field_spring_start_minute',
+      3 => 'field_field_spring_end_minute',
     ),
     'format_type' => 'div',
     'format_settings' => array(

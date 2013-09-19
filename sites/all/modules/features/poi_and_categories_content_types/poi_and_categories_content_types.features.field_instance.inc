@@ -223,7 +223,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 90,
+        'weight' => 101,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -371,7 +371,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 88,
+        'weight' => 100,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -519,7 +519,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 91,
+        'weight' => 99,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -667,7 +667,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 89,
+        'weight' => 98,
       ),
       'teaser' => array(
         'label' => 'above',
