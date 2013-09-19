@@ -21,7 +21,7 @@ function poi_and_categories_content_types_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Höst - Datum',
-    'weight' => '9',
+    'weight' => '45',
     'children' => array(
       0 => 'field_autumn_end_month',
       1 => 'field_autumn_start_month',
@@ -54,7 +54,7 @@ function poi_and_categories_content_types_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Höst - Tider',
-    'weight' => '10',
+    'weight' => '50',
     'children' => array(
       0 => 'field_autumn_start_hour',
       1 => 'field_autumn_end_hour',
@@ -87,7 +87,7 @@ function poi_and_categories_content_types_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Vår - Datum',
-    'weight' => '7',
+    'weight' => '35',
     'children' => array(
       0 => 'field_spring_start_month',
       1 => 'field_spring_end_month',
@@ -122,7 +122,7 @@ function poi_and_categories_content_types_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Vår - Tider',
-    'weight' => '8',
+    'weight' => '40',
     'children' => array(
       0 => 'field_spring_start_hour',
       1 => 'field_spring_end_hour',

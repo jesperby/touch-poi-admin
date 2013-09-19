@@ -51,7 +51,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 2,
+      'weight' => 10,
     ),
   );
 
@@ -91,7 +91,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => 15,
     ),
   );
 
@@ -128,7 +128,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 33,
+      'weight' => 64,
     ),
   );
 
@@ -165,7 +165,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 37,
+      'weight' => 67,
     ),
   );
 
@@ -202,7 +202,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 38,
+      'weight' => 68,
     ),
   );
 
@@ -239,7 +239,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 32,
+      'weight' => 63,
     ),
   );
 
@@ -276,7 +276,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 31,
+      'weight' => 62,
     ),
   );
 
@@ -313,7 +313,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 35,
+      'weight' => 65,
     ),
   );
 
@@ -350,7 +350,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 36,
+      'weight' => 66,
     ),
   );
 
@@ -387,7 +387,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 30,
+      'weight' => 61,
     ),
   );
 
@@ -430,7 +430,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 6,
+      'weight' => 30,
     ),
   );
 
@@ -467,7 +467,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'geolocation',
       'settings' => array(),
       'type' => 'geolocation_text',
-      'weight' => 4,
+      'weight' => 20,
     ),
   );
 
@@ -517,7 +517,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 5,
+      'weight' => 25,
     ),
   );
 
@@ -554,7 +554,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 34,
+      'weight' => 54,
     ),
   );
 
@@ -591,7 +591,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 39,
+      'weight' => 59,
     ),
   );
 
@@ -628,7 +628,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 40,
+      'weight' => 60,
     ),
   );
 
@@ -665,7 +665,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 33,
+      'weight' => 53,
     ),
   );
 
@@ -702,7 +702,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 32,
+      'weight' => 52,
     ),
   );
 
@@ -739,7 +739,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 37,
+      'weight' => 57,
     ),
   );
 
@@ -776,7 +776,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 38,
+      'weight' => 58,
     ),
   );
 
@@ -813,7 +813,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 31,
+      'weight' => 51,
     ),
   );
 
@@ -852,7 +852,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 1,
+      'weight' => 5,
     ),
   );
 

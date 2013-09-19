@@ -46,7 +46,7 @@ function TPA_poi_content_form_poi_node_form_alter(&$form, &$form_state) {
                        </iframe>
                     </div>
                   ",
-    "#weight" => 25,
+    "#weight" => 12,
   );
 
   // Disable / enable input fields based on chosen subcategory
