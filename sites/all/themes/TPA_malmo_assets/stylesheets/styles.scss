@@ -56,68 +56,62 @@
 /********************* Seasonal times ****************/
 
 #poi-node-form {
-	/* Don't display years */
-	#edit-field-spring-dates-und-0-value-year,  #edit-field-spring-dates-und-0-value2-year, 
-	#edit-field-spring-times-und-0-value-year, #edit-field-spring-times-und-0-value2-year,
-	#edit-field-autumn-dates-und-0-value-year, #edit-field-autumn-dates-und-0-value2-year,
-	#edit-field-autumn-times-und-0-value-year, #edit-field-autumn-times-und-0-value2-year,
-	.form-item.date-spacer
-	{
-		display:none;
-	}
-
+	
 	/* Set hour-minute widths */
-	#edit-field-spring-times-und-0-value-hour, #edit-field-spring-times-und-0-value-minute,
-	#edit-field-spring-times-und-0-value2-hour, #edit-field-spring-times-und-0-value2-minute,
-	#edit-field-autumn-times-und-0-value-hour, #edit-field-autumn-times-und-0-value-minute,
-	#edit-field-autumn-times-und-0-value2-hour, #edit-field-autumn-times-und-0-value2-minute {
+	#edit-field-spring-start-hour-und, #edit-field-autumn-start-hour-und,
+	#edit-field-spring-end-hour-und, #edit-field-autumn-end-hour-und,
+	#edit-field-spring-start-minute-und, #edit-field-autumn-start-minute-und,
+	#edit-field-spring-end-minute-und, #edit-field-autumn-end-minute-und {
 		width: 6em;
 	}
 
-	/* Styling of text 'till' */
-	.form-type-date-select label {
-	  font-size: 13px;
-	  margin-bottom: -6px;
-	  margin-left: 13px;
-	  margin-top: 5px;
+	/* Month field */
+	#edit-field-spring-start-month-und, #edit-field-spring-end-month-und, 
+	#edit-field-autumn-start-month-und, #edit-field-autumn-end-month-und,
+	#edit-field-autumn-start-hour-und, #edit-field-autumn-end-hour-und,
+	#edit-field-spring-start-hour-und, #edit-field-spring-end-hour-und {
+		float:left;
+		margin-right: 10px;
 	}
 
-	.form-type-date-select .form-type-select[class$="hour"] {
-	    margin-left: 0em;
-	}
-
-	.date-no-float {
-	    clear: both;
-	    float: none;
-	    margin-bottom: -25px;
-	    width: 98%;
-	}
-
-	.field-widget-date-select {
-		margin-bottom: 40px;
+	/* Day field */
+	#edit-field-spring-start-day-und, #edit-field-spring-end-day-und, 
+	#edit-field-autumn-start-day-und, #edit-field-autumn-end-day-und,
+	#edit-field-autumn-start-minute-und, #edit-field-autumn-end-minute-und,
+	#edit-field-spring-start-minute-und, #edit-field-spring-end-minute-und {
+		float:left;
+		
 	}
 
 	/* Placing dates and times side-by-side */
-	#edit-field-autumn-times, #edit-field-spring-times {
+	#node_poi_form_group_spring_times, #node_poi_form_group_autumn_times {
 		float:right;
 		width: 30%;
 	}
 
-	#edit-field-autumn-dates, #edit-field-spring-dates {
+	#node_poi_form_group_spring_dates, #node_poi_form_group_autumn_dates {
 		float:left;
 		width: 70%;
 	}
 
-	#edit-field-spring-dates,  #edit-field-spring-times {
-		margin-top: 60px;
-	}
-	
-	#edit-actions {
-		clear:both;
-	}
 
 	/* Don't show coordinate header */
 	#edit-field-geolocation-und-0 legend {
 		display:none;
+	}
+
+	/* Don't display date/time labels */
+	#node_poi_form_group_spring_dates label, #node_poi_form_group_spring_times label,
+	#node_poi_form_group_autumn_dates label, #node_poi_form_group_autumn_times label {
+		display:none;
+	}
+
+	#node_poi_form_group_autumn_dates, #node_poi_form_group_autumn_times {
+		margin-bottom: 30px;
+	}
+
+	#node_poi_form_group_spring_dates, #node_poi_form_group_spring_times {
+		margin-top: 30px;
+		margin-bottom: 50px;
 	}
 } /* End #poi-node-form */

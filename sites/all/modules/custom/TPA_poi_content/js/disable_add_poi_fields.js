@@ -43,15 +43,15 @@
           }
 
           if( seasonsEnabled === 'false') {
-            $('#edit-field-spring-dates').hide();
-            $('#edit-field-spring-times').hide();
-            $('#edit-field-autumn-dates').hide();
-            $('#edit-field-autumn-times').hide();
+            $('#node_poi_form_group_spring_dates').hide();
+            $('#node_poi_form_group_autumn_dates').hide();
+            $('#node_poi_form_group_spring_times').hide();
+            $('#node_poi_form_group_autumn_times').hide();
           } else {
-            $('#edit-field-spring-dates').show();
-            $('#edit-field-spring-times').show();
-            $('#edit-field-autumn-dates').show();
-            $('#edit-field-autumn-times').show(); 
+            $('#node_poi_form_group_spring_dates').show();
+            $('#node_poi_form_group_autumn_dates').show();
+            $('#node_poi_form_group_spring_times').show();
+            $('#node_poi_form_group_autumn_times').show(); 
           }
        });
       }
