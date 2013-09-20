@@ -29,6 +29,12 @@ require_once './' . drupal_get_path('theme', 'TPA_malmo_assets') . '/hooks/hook_
 // Hook menu_link
 require_once './' . drupal_get_path('theme', 'TPA_malmo_assets') . '/hooks/hook_menu_link.inc';
 
+// Hook preprocess_page
+require_once './' . drupal_get_path('theme', 'TPA_malmo_assets') . '/hooks/hook_preprocess_page.inc';
+
+// Hook preprocess_maintenance_page
+require_once './' . drupal_get_path('theme', 'TPA_malmo_assets') . '/hooks/hook_preprocess_maintenance_page.inc';
+
 // Hook form_element
 //require_once './' . drupal_get_path('theme', 'TPA_malmo_assets') . '/hooks/hook_form_element.inc';
 
