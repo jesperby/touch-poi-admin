@@ -3,7 +3,6 @@ description = The poi, subcategory and category content types
 core = 7.x
 package = Malmö Stad
 dependencies[] = ctools
-dependencies[] = date
 dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = field_group
