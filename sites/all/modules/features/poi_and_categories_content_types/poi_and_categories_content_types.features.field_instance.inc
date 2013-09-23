@@ -255,7 +255,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 107,
+        'weight' => 119,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -276,7 +276,7 @@ function poi_and_categories_content_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 62,
+      'weight' => 69,
     ),
   );
 

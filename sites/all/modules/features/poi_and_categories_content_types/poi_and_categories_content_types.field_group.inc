@@ -25,8 +25,7 @@ function poi_and_categories_content_types_field_group_info() {
     'children' => array(
       0 => 'field_autumn_end_month',
       1 => 'field_autumn_start_month',
-      2 => 'field_autumn_start_day',
-      3 => 'field_autumn_end_day',
+      2 => 'field_autumn_end_day',
     ),
     'format_type' => 'div',
     'format_settings' => array(

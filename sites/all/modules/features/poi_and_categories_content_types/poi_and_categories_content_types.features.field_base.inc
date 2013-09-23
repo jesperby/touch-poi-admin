@@ -445,7 +445,7 @@ function poi_and_categories_content_types_field_default_field_bases() {
       'allowed_values_function' => '',
     ),
     'translatable' => 0,
-    'type' => 'list_integer',
+    'type' => 'list_text',
   );
 
   // Exported field_base: 'field_autumn_start_hour'
