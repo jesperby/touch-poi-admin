@@ -150,9 +150,8 @@
   			}	
   		}
 
-  		if( $ts['spring_dates_set'] && $ts['spring_times_set'] &&
-  				$ts['autumn_dates_set'] && $ts['autumn_times_set'] &&
-  				!$poi_open_for_autumn && !$poi_open_for_spring ) {
+  		// autumn + spring not open = poi not open
+  		if( !$poi_open_for_autumn && !$poi_open_for_spring ) {
   			$active = 'false';
   		}
   	}
