@@ -57,30 +57,36 @@
 
 #poi-node-form {
 	
-	/* Set hour-minute widths */
-	#edit-field-spring-start-hour-und, #edit-field-autumn-start-hour-und,
-	#edit-field-spring-end-hour-und, #edit-field-autumn-end-hour-und,
-	#edit-field-spring-start-minute-und, #edit-field-autumn-start-minute-und,
-	#edit-field-spring-end-minute-und, #edit-field-autumn-end-minute-und {
-		width: 6em;
-	}
-
+	
 	/* Month field */
 	#edit-field-spring-start-month-und, #edit-field-spring-end-month-und, 
-	#edit-field-autumn-start-month-und, #edit-field-autumn-end-month-und,
+	#edit-field-autumn-start-month-und, #edit-field-autumn-end-month-und {
+		float:left;
+		margin-right: 2%;
+		width: 25%
+	}
+	
+	/* Day fields */
+	#edit-field-spring-start-day-und, #edit-field-spring-end-day-und, 
+	#edit-field-autumn-start-day-und, #edit-field-autumn-end-day-und {
+		float:left;
+		width: 25%;
+		margin-right: 48%;
+	}
+
+	/* Hour fields */
 	#edit-field-autumn-start-hour-und, #edit-field-autumn-end-hour-und,
 	#edit-field-spring-start-hour-und, #edit-field-spring-end-hour-und {
 		float:left;
-		margin-right: 10px;
+		margin-right: 2%;
+		width:48%;
 	}
 
-	/* Day field */
-	#edit-field-spring-start-day-und, #edit-field-spring-end-day-und, 
-	#edit-field-autumn-start-day-und, #edit-field-autumn-end-day-und,
+	/* Minute fields */
 	#edit-field-autumn-start-minute-und, #edit-field-autumn-end-minute-und,
 	#edit-field-spring-start-minute-und, #edit-field-spring-end-minute-und {
 		float:left;
-		
+		width: 50%;
 	}
 
 	/* Placing dates and times side-by-side */
