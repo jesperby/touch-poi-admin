@@ -47,7 +47,7 @@
 	  	$name = ''; $address =''; $openTime = ''; $closeTime = ''; $description = '';
 	  	$imageUrl = '';
 
-	  	$active = TPA_poi_content_poi_active( $node, $poi_categories );	  
+	  	TPA_poi_content_poi_active( $node, $poi_categories, $openTime, $closeTime, $active );	  
 	  	$type = $node->field_subcategory['und'][0]['target_id'];
 	  	$address = htmlspecialchars( $node->field_adress['und'][0]['value'], ENT_QUOTES );
 	  	$imageUrl = file_create_url($node->field_poi_image['und'][0]['uri']);
@@ -57,9 +57,7 @@
 	  	$name = htmlspecialchars( $node->title, ENT_QUOTES );
 	  	$id = $node->nid;
 
-	  	// TODO - Calculate based on open season times
-	  	$openTime = "09:00";
-	  	$closeTime = "21:00";
+	  	
 			
 			$point_xml .= '
 				<point 	type="' . $type . '" longitude="' . $longitude . '" latitude="' . $langitude . '" active="' . $active . '" 
@@ -110,7 +108,7 @@
 	/**
 	 * Function to determine whether a poi is active
 	 */
-	function TPA_poi_content_poi_active( $node, $poi_categories ) {
+	function TPA_poi_content_poi_active( $node, $poi_categories, &$openTime, &$closeTime, &$active ) {
   	// Is closable and/or seasons activated?
   	$poi_category = $node->field_subcategory['und'][0]['target_id'];
   	$closable_activated = $poi_categories[$poi_category]['closable_activated'];
@@ -132,12 +130,25 @@
   	if( $seasons_activated ) {
 			$ts = TPA_poi_content_unix_timestamps( $node );
 			
+			
+
 			// Is poi open for autumn?
 			$poi_open_for_autumn = false;
 			if( $ts['autumn_dates_set'] && $ts['autumn_times_set'] ) {
 	  		if( $ts['current_date'] >= $ts['autumn_start_date'] && $ts['current_date'] <= $ts['autumn_end_date'] &&
 	  				$ts['current_time'] >= $ts['autumn_start_time'] && $ts['current_time'] <= $ts['autumn_end_time'] ) {
+
 	  			$poi_open_for_autumn = true;
+	  			
+	  			// Get data from input fields
+					$start_hour = $node->field_autumn_start_hour['und'][0]['value'];
+					$start_minute = $node->field_autumn_start_minute['und'][0]['value'];
+					$end_hour = $node->field_autumn_end_hour['und'][0]['value'];
+					$end_minute = $node->field_autumn_end_minute['und'][0]['value'];
+
+					// Set start and closing time
+	  			$openTime = $start_hour . ":" . $start_minute;
+	  			$closeTime = $end_hour . ":" . $end_minute;
 	  		}
   		}
 
@@ -147,6 +158,16 @@
   			if( $ts['current_date'] >= $ts['spring_start_date'] && $ts['current_date'] <= $ts['spring_end_date'] &&
   					$ts['current_time'] >= $ts['spring_start_time'] && $ts['current_time'] <=	 $ts['spring_end_time'] ) {
   				$poi_open_for_spring = true;
+
+  				// Get data from input fields
+					$start_hour = $node->field_spring_start_hour['und'][0]['value'];
+					$start_minute = $node->field_spring_start_minute['und'][0]['value'];
+					$end_hour = $node->field_spring_end_hour['und'][0]['value'];
+					$end_minute = $node->field_spring_end_minute['und'][0]['value'];
+
+					// Set start and closing time
+	  			$openTime = $start_hour . ":" . $start_minute;
+	  			$closeTime = $end_hour . ":" . $end_minute;
   			}	
   		}
 
@@ -155,8 +176,6 @@
   			$active = 'false';
   		}
   	}
-
-  	return $active;
 	}
 
 
