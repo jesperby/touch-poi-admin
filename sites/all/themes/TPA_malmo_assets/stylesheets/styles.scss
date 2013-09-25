@@ -70,8 +70,17 @@
 	#edit-field-spring-start-day-und, #edit-field-spring-end-day-und, 
 	#edit-field-autumn-start-day-und, #edit-field-autumn-end-day-und {
 		float:left;
-		width: 25%;
+		width: 15%;
 		margin-right: 48%;
+	}
+
+
+	/* Month/day labels */
+	label[for=edit-field-spring-start-month-und], label[for=edit-field-spring-end-month-und],
+	label[for=edit-field-autumn-start-month-und], label[for=edit-field-autumn-end-month-und] {
+		float:left;
+		width: 10%;
+		margin-top: 5px;
 	}
 
 	/* Hour fields */
@@ -79,14 +88,22 @@
 	#edit-field-spring-start-hour-und, #edit-field-spring-end-hour-und {
 		float:left;
 		margin-right: 2%;
-		width:48%;
+		width:37%;
 	}
 
 	/* Minute fields */
 	#edit-field-autumn-start-minute-und, #edit-field-autumn-end-minute-und,
 	#edit-field-spring-start-minute-und, #edit-field-spring-end-minute-und {
 		float:left;
-		width: 50%;
+		width: 31%;
+	}
+
+	/* Hour/minute labels */
+	label[for=edit-field-spring-start-hour-und], label[for=edit-field-spring-end-hour-und],
+	label[for=edit-field-autumn-start-hour-und], label[for=edit-field-autumn-end-hour-und] {
+		float:left;
+		width: 30%;
+		margin-top: 5px;
 	}
 
 	/* Placing dates and times side-by-side */
@@ -109,7 +126,7 @@
 	/* Don't display date/time labels */
 	#node_poi_form_group_spring_dates label, #node_poi_form_group_spring_times label,
 	#node_poi_form_group_autumn_dates label, #node_poi_form_group_autumn_times label {
-		display:none;
+		/*display:none;*/
 	}
 
 	#node_poi_form_group_autumn_dates, #node_poi_form_group_autumn_times {
