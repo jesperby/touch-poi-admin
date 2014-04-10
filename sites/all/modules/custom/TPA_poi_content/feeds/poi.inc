@@ -1,7 +1,7 @@
 <?php
 
-	global $tmp_year;  // Arbitrary year used to create unix timestamps for dates/times specified without year
-	$tmp_year = '2013';
+	global $current_year;  
+	$current_year = date('Y');
 
 	error_reporting(E_ALL);
 	ini_set('display_errors', '1');
@@ -124,8 +124,6 @@
   		}
   	}
 
-
-
   	// Closed because outside season opening times?
   	if( $seasons_activated ) {
 			$ts = TPA_poi_content_unix_timestamps( $node );
@@ -186,7 +184,7 @@
 		
 		$timestamps = array();
 		date_default_timezone_set('Europe/Stockholm');
-		global $tmp_year;
+		global $current_year;
 
 		if( isset( $node->field_spring_start_month['und'][0]['value'] ) &&
 				isset( $node->field_spring_start_day['und'][0]['value'] ) &&
@@ -202,8 +200,8 @@
 			$end_day = $node->field_spring_end_day['und'][0]['value'];
 
 			// Compute start and end year (we are only given months to represent interval)
-			$start_year = $tmp_year;
-			$end_year = $tmp_year;
+			$start_year = $current_year;
+			$end_year = $current_year;
 			compute_start_and_end_year( $start_year, $end_year, $start_month, $end_month );
 
 			// Spring start date timestamp
@@ -233,8 +231,8 @@
 			$end_day = $node->field_autumn_end_day['und'][0]['value'];
 
 			// Compute start and end year (we are only given months to represent interval)
-			$start_year = $tmp_year;
-			$end_year = $tmp_year;
+			$start_year = $current_year;
+			$end_year = $current_year;
 			compute_start_and_end_year( $start_year, $end_year, $start_month, $end_month );
 
 			// Autumn start date timestamp
@@ -319,17 +317,17 @@
 	 * to current date
 	 */
 	function compute_start_and_end_year( &$start_year, &$end_year, $start_month, $end_month ) {
-		global $tmp_year;
+		global $current_year;
 
 		if( $start_month > $end_month ) { 
 			$current_month = date('m');
 
 			if( $start_month <= $current_month ) {
-				$end_year = strval( intval( $tmp_year ) + 1 );  // $start_year = $tmp_year - 1
+				$end_year = strval( intval( $current_year ) + 1 );  // $start_year = $current_year - 1
 			} else if ( $end_month >= $current_month ) {
-				$start_year = strval( intval( $tmp_year ) - 1 );  // $end_year = $tmp_year + 1
+				$start_year = strval( intval( $current_year ) - 1 );  // $end_year = $current_year + 1
 			} else {  // Current month outside of interval
-				$start_year = strval( intval( $tmp_year ) - 1 );  // $end_year = $tmp_year + 1
+				$start_year = strval( intval( $current_year ) - 1 );  // $end_year = $current_year + 1
 			}
 		}
 	}
